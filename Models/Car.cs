@@ -1,157 +1,92 @@
-#include"car.h"
-#include<iomanip>
-#pragma once
-#include<iostream>
-#include"reservation.h"
-using namespace std;
+﻿
 
-public class  Car {
-	public int id{ get; set; }
-	public string make { get; set; }
-	public string model { get; set; }
-	public int year { get; set; }
-	public bool availability { get; set; }
-	public Reservation* reserve { get; set; }
-	public int reserve_count { get; set; }
-	public int reserve_size { get; set; }
-
-	Car(Reservation** r, int s) {
-	reserve_count = reserve_size = s;
-	reserve = new Reservation[reserve_size];
-	for (int i = 0; i<reserve_count; i++) {
-		reserve[i] = Reservation(*r[i]);
-         }
-     }
-
-Car(int c) {
-	reserve_size = c;
-	reserve = new Reservation[reserve_size];
-}
-
-	void setReservations(Reservation** p, int s)
-	{
-		//delete[] reserve;
-		reserve_size = s;
-		reserve = new Reservation[reserve_size];
-		for (int i = 0; i < reserve_size; i++)
-		{
-			reserve[i] = Reservation(*p[i]);
-		}
-	}
-	void  setReserveSize(int s)
-	{
-		if (reserve_size < 0)
-			cout << "Invalid number..try again!";
-		reserve_size = s;
-	}
-
-	int  getReserveSize()
-	{
-		return reserve_size;
-	}
-
-	int getId()
-	{
-		return id;
-	}
-	bool  addReservation(Reservation &r)
-	{
-		if (reserve_count < reserve_size)
-		{
-			reserve[reserve_count++] = r;
-			return true;
-		}
-		else
-			cout << "You exceeded the utomst number of cars ";
-		return false;
-	}
-
-
-	int getReserveCount()
-	{
-		return reserve_count;
-	}
-
-	void lessenCount()
-	{
-		reserve_count--;
-	}
-
-	bool checkSize()
-	{
-		return reserve_count <= reserve_size;
-	}
-
-	bool checkAvailability(Date start_date, Date end_date)
-	{
-		for (int i = 0; i < reserve_count; i++)
-		{
-			if (overlap(reserve[i].getStartDate(), reserve[i].getEndDate(), start_date, end_date))
-			{
-				availability = 0;
-				return false;
-			}
-
-		}
-		availability = 1;
-		return true;
-	}
-
-	istream& operator>>(istream& input, Car& obj) {
-	 cout << "\nEnter car informantion(Id/make/model/year): ";
-	 input >> obj.id >> obj.make >> obj.model >> obj.year;
-	 return input;
- }
-
-ostream& operator <<(std::ostream& output, const Car& obj)
+namespace Car_Rental_System.Models
 {
-	cout << "\n\t=====CAR INFORMATION=====" << endl;
-	output << "Id: " << obj.id << " | Make: " << obj.make << " | model : " << obj.model << " | Year : " << obj.year;
+    public class Car : IComparable<Car>
+    {
+        public int Id { get; set; }
+        public string Make { get; set; }=string.Empty;
+        public string Model { get; set; } = string.Empty;
+        public int Year { get; set; }
+        public bool Availability { get; set; }
+        public List<Reservation> Reservations { get; set; } = new List<Reservation>();
 
-	if (obj.reserve_count != 0)
-	{
-		for (int i = 0; i < obj.reserve_count; i++)
-		{
-			output << setw(20) << "***Reservation " << i + 1 << " ***" << endl;
-			output << obj.reserve[i] << endl;
-			output << "Customer id: " << obj.reserve[i].getCustomerId();
+        public Car(List<Reservation> reservations)
+        {
+            Reservations = new List<Reservation>(reservations);
+        }
 
-		}
-	}
-	return output;
+        public Car() { }
+
+        public bool AddReservation(Reservation r)
+        {
+            Reservations.Add(r);
+            return true;
+        }
+
+        public bool CheckAvailability(Date startDate, Date endDate)
+        {
+            foreach (var res in Reservations)
+            {
+                if (Overlap(res.DateRange[0], res.DateRange[1], startDate, endDate))
+                {
+                    Availability = false;
+                    return false;
+                }
+            }
+            Availability = true;
+            return true;
+        }
+
+        public override string ToString()
+        {
+            string info = $"\n\t===== CAR INFORMATION =====\n" +
+                          $"Id: {Id} | Make: {Make} | Model: {Model} | Year: {Year}\n";
+
+            if (Reservations.Count > 0)
+            {
+                for (int i = 0; i < Reservations.Count; i++)
+                {
+                    info += $"*** Reservation {i + 1} ***\n";
+                    info += Reservations[i].ToString();
+                }
+            }
+            return info;
+        }
+
+        public int CompareTo(Car other)
+        {
+            return Reservations.Count.CompareTo(other.Reservations.Count);
+        }
+
+        public static bool Overlap(Date s1, Date d1, Date s2, Date d2)
+        {
+            return s1 <= d2 && s2 <= d1;  
+        }
+
+        public void ReadData()
+        {
+            Console.Write("Enter Car ID: ");
+            Id = int.Parse(Console.ReadLine()??string.Empty);
+
+            Console.Write("Enter Car Make: ");
+            Make = Console.ReadLine()??string.Empty;
+
+            Console.Write("Enter Car Model: ");
+            Model = Console.ReadLine()??string.Empty;
+
+            Console.Write("Enter Car Year: ");
+            Year = int.Parse(Console.ReadLine()??string.Empty);
+
+            Console.Write("Is the car available? (yes/no): ");
+            string availabilityInput = Console.ReadLine().ToLower();
+            Availability = availabilityInput == "yes";
+        }
+        public void WriteData()
+        {
+            Console.WriteLine("\n===== CAR INFORMATION =====");
+            Console.WriteLine($"ID: {Id} | Make: {Make} | Model: {Model} | Year: {Year} | Available: {Availability}");
+        }
+    }
+
 }
-bool  operator <(Car car)
-{
-	return reserve_count < car.getReserveCount();
-}
-
-bool  operator ==(Car car)
-{
-	return reserve_count == car.getReserveCount();
-}
-
-bool  operator >(Car car)
-{
-	return reserve_count > car.getReserveCount();
-
-}
-
-
-~Car()
-{
-	delete[] reserve;
-}
-
-
-
-};
-bool overlap(Date s1, Date d1, Date s2, Date d2);
-
-Reservation::Reservation(const Reservation& other) {
-	startDate = other.startDate;
-endDate = other.endDate;
-c = new Car();
-*c = *(other.c);
-}
-
-
