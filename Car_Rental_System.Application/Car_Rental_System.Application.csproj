@@ -10,7 +10,12 @@
     <Folder Include="Auth\" />
     <Folder Include="AuthClaims\" />
     <Folder Include="Cars\" />
-    <Folder Include="Common\NewFolder\" />
+    <Folder Include="Common\Attributes\" />
+    <Folder Include="Common\Behaviors\" />
+    <Folder Include="Common\Extensions\" />
+    <Folder Include="Common\Interfaces\" />
+    <Folder Include="Common\Validation\" />
+    <Folder Include="Common\Responses\" />
     <Folder Include="DTOS\" />
   </ItemGroup>
 
