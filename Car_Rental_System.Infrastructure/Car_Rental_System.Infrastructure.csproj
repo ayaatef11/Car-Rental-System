@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Authorization\" />
+    <Folder Include="Configurations\" />
+    <Folder Include="TokenProvider\" />
+    <Folder Include="Storage\" />
+    <Folder Include="Persistence\Configuration\" />
+    <Folder Include="Persistence\Seeders\" />
+  </ItemGroup>
+
+</Project>
