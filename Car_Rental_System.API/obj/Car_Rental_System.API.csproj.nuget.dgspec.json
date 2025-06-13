@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\2-back-end\\2-Car_Rental_System\\Car_Rental_System.Infrastructure\\Car_Rental_System.Infrastructure.csproj": {}
+    "F:\\2-back-end\\2-Car_Rental_System\\Car_Rental_System.API\\Car_Rental_System.API.csproj": {}
   },
   "projects": {
-    "F:\\2-back-end\\2-Car_Rental_System\\Car_Rental_System.Infrastructure\\Car_Rental_System.Infrastructure.csproj": {
+    "F:\\2-back-end\\2-Car_Rental_System\\Car_Rental_System.API\\Car_Rental_System.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\2-back-end\\2-Car_Rental_System\\Car_Rental_System.Infrastructure\\Car_Rental_System.Infrastructure.csproj",
-        "projectName": "Car_Rental_System.Infrastructure",
-        "projectPath": "F:\\2-back-end\\2-Car_Rental_System\\Car_Rental_System.Infrastructure\\Car_Rental_System.Infrastructure.csproj",
+        "projectUniqueName": "F:\\2-back-end\\2-Car_Rental_System\\Car_Rental_System.API\\Car_Rental_System.API.csproj",
+        "projectName": "Car_Rental_System.API",
+        "projectPath": "F:\\2-back-end\\2-Car_Rental_System\\Car_Rental_System.API\\Car_Rental_System.API.csproj",
         "packagesPath": "C:\\Users\\Aya Atef\\.nuget\\packages\\",
-        "outputPath": "F:\\2-back-end\\2-Car_Rental_System\\Car_Rental_System.Infrastructure\\obj\\",
+        "outputPath": "F:\\2-back-end\\2-Car_Rental_System\\Car_Rental_System.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -22,7 +22,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -30,8 +30,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -48,56 +48,26 @@
         "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
-            "AspNetCore.HealthChecks.Azure.Storage.Blobs": {
-              "target": "Package",
-              "version": "[9.0.0, )"
-            },
-            "Azure.Storage.Blobs": {
-              "target": "Package",
-              "version": "[12.24.1, )"
-            },
-            "FluentEmail.Core": {
-              "target": "Package",
-              "version": "[3.0.2, )"
-            },
-            "FluentEmail.Smtp": {
-              "target": "Package",
-              "version": "[3.0.2, )"
-            },
-            "Hangfire": {
-              "target": "Package",
-              "version": "[1.8.20, )"
-            },
-            "Hangfire.Storage.SQLite": {
-              "target": "Package",
-              "version": "[0.4.2, )"
-            },
-            "Microsoft.AspNetCore.Identity": {
-              "target": "Package",
-              "version": "[2.3.1, )"
-            },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[9.0.6, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.6, )"
+              "version": "[9.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[9.0.6, )"
+              "version": "[9.0.3, )"
             },
-            "Microsoft.Extensions.Configuration.Binder": {
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.6, )"
+              "version": "[9.0.3, )"
             },
-            "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore": {
+            "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[9.0.6, )"
+              "version": "[6.6.2, )"
             }
           },
           "imports": [
@@ -112,6 +82,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
