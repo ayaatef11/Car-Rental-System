@@ -9,8 +9,6 @@
   <ItemGroup>
     <Folder Include="Authorization\" />
     <Folder Include="Configurations\" />
-    <Folder Include="TokenProvider\" />
-    <Folder Include="Storage\" />
     <Folder Include="Persistence\Configuration\" />
     <Folder Include="Persistence\Seeders\" />
   </ItemGroup>
