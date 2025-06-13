@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Car_Rental_System.Domain.Errors;
+
+public static class FollowErrors
+{
+    public static Error UserNotFound(string userId) => Error.NotFound(
+        "Follow.UserNotFound",
+        $"User with ID '{userId}' was not found.");
+
+    public static Error AlreadyFollowing(string followerId, string followingId) => Error.Conflict(
+        "Follow.AlreadyFollowing",
+        $"User '{followerId}' is already following user '{followingId}'.");
+
+    public static Error NotFollowing(string followerId, string followingId) => Error.Conflict(
+        "Follow.NotFollowing",
+        $"User '{followerId}' is not following user '{followingId}'.");
+
+    public static Error SelfFollowNotAllowed => Error.Failure(
+        "Follow.SelfFollowNotAllowed",
+        "You cannot follow yourself.");
+}
