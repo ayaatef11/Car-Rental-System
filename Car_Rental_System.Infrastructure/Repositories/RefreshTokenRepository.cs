@@ -1,12 +1,30 @@
-﻿using System;
+﻿using Car_Rental_System.Infrastructure.Persistence;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Car_Rental_System.Infrastructure.Repositories
+namespace Car_Rental_System.Infrastructure.Repositories;
+internal class RefreshTokenRepository(AppDbContext dbContext) : IRefreshTokenRepository
 {
-    internal class RefreshTokenRepository
+    public async Task AddAsync(RefreshToken token)
     {
+        await dbContext.RefreshTokens.AddAsync(token);
     }
+
+    public async Task<RefreshToken?> GetByTokenAsync(string token)
+    {
+        return await dbContext.RefreshTokens
+             .Include(r => r.User)
+             .FirstOrDefaultAsync(r => r.Token == token);
+    }
+
+    public async Task<IEnumerable<RefreshToken>> GetByUserIdAsync(string userId)
+    {
+        var tokens = await dbContext.RefreshTokens.Where(r => r.UserId == userId).ToListAsync();
+        return tokens;
+    }
+
+    public async Task SaveChangesAsync() => await dbContext.SaveChangesAsync();
 }

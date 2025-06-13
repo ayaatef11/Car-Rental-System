@@ -1,4 +1,5 @@
 ﻿using Car_Rental_System.Infrastructure.Persistence;
+using Car_Rental_System.Infrastructure.Repositories;
 using System.Collections;
 
 namespace Car_Rental_System.Repositories
