@@ -5176,9 +5176,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\2-back-end\\2-Car_Rental_System\\Car_Rental_System\\Car_Rental_System.csproj",
-      "projectName": "Car_Rental_System",
-      "projectPath": "F:\\2-back-end\\2-Car_Rental_System\\Car_Rental_System\\Car_Rental_System.csproj",
+      "projectUniqueName": "F:\\2-back-end\\2-Car_Rental_System\\Car_Rental_System\\Car_Rental_System.API.csproj",
+      "projectName": "Car_Rental_System.API",
+      "projectPath": "F:\\2-back-end\\2-Car_Rental_System\\Car_Rental_System\\Car_Rental_System.API.csproj",
       "packagesPath": "C:\\Users\\Aya Atef\\.nuget\\packages\\",
       "outputPath": "F:\\2-back-end\\2-Car_Rental_System\\Car_Rental_System\\obj\\",
       "projectStyle": "PackageReference",

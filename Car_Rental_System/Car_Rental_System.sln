@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35728.132
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Car_Rental_System", "Car_Rental_System.csproj", "{4FB666B2-4F1F-44B3-8C13-A389605949AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Car_Rental_System.API", "Car_Rental_System.API.csproj", "{4FB666B2-4F1F-44B3-8C13-A389605949AC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Car_Rental_System.Application", "..\Car_Rental_System.Application\Car_Rental_System.Application.csproj", "{A1AA10FD-694F-431B-AEF1-CC06C5FBA438}"
 EndProject

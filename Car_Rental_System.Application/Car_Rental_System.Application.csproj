@@ -10,8 +10,8 @@
     <Folder Include="Auth\" />
     <Folder Include="AuthClaims\" />
     <Folder Include="Cars\" />
+    <Folder Include="Common\NewFolder\" />
     <Folder Include="DTOS\" />
-    <Folder Include="Common\" />
   </ItemGroup>
 
 </Project>
