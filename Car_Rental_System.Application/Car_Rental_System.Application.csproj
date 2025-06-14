@@ -9,14 +9,21 @@
   <ItemGroup>
     <Folder Include="Auth\" />
     <Folder Include="AuthClaims\" />
-    <Folder Include="Cars\" />
-    <Folder Include="Common\Attributes\" />
-    <Folder Include="Common\Behaviors\" />
-    <Folder Include="Common\Extensions\" />
-    <Folder Include="Common\Interfaces\" />
-    <Folder Include="Common\Validation\" />
-    <Folder Include="Common\Responses\" />
+    <Folder Include="Cars\Commands\AddCar\" />
+    <Folder Include="Cars\Queries\" />
+    <Folder Include="Common\Interfaces\Authorization\" />
     <Folder Include="DTOS\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="FluentValidation" Version="12.0.0" />
+    <PackageReference Include="MediatR" Version="12.5.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Car_Rental_System.Domain\Car_Rental_System.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,5 @@
-﻿namespace Car_Rental_System.Models
-{
-
-    public class Invoice : IComparable<Invoice>
+﻿namespace Car_Rental_System.Domain.Entities;
+public class Invoice : IComparable<Invoice>
     {
         public int Id { get; set; }
         public double RentalCharges { get; set; }
@@ -47,8 +45,5 @@
                 return this == invoice;
             return false;
         }
-
         public override int GetHashCode() => CalculateTotalAmountDue().GetHashCode();
     }
-
-}

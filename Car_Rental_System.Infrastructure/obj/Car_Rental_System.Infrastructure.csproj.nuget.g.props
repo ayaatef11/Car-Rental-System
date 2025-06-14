@@ -18,5 +18,6 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgHangfire_SqlServer Condition=" '$(PkgHangfire_SqlServer)' == '' ">C:\Users\Aya Atef\.nuget\packages\hangfire.sqlserver\1.8.20</PkgHangfire_SqlServer>
+    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\Aya Atef\.nuget\packages\entityframework\6.2.0</PkgEntityFramework>
   </PropertyGroup>
 </Project>

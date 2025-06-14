@@ -1,7 +1,4 @@
-﻿
-
-namespace Car_Rental_System.Models
-{
+﻿namespace Car_Rental_System.Domain.Entities;
     public class Car : IComparable<Car>
     {
         public int Id { get; set; }
@@ -25,4 +22,4 @@ namespace Car_Rental_System.Models
         
     }
 
-}
+

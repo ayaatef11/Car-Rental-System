@@ -1,6 +1,6 @@
-﻿namespace Car_Rental_System.Models
-{
-    public enum ReservationStatus { NotCompleted, Completed, Canceled, Still }
+﻿using Car_Rental_System.Domain.Constants;
+
+namespace Car_Rental_System.Domain.Entities;
 
     public class Reservation : IComparable<Reservation>
     {
@@ -61,5 +61,3 @@
 
         public override int GetHashCode() => Invoice.CalculateTotalAmountDue().GetHashCode();
     }
-
-}

@@ -1,6 +1,5 @@
 ﻿
-namespace Car_Rental_System.Infrastructure.Services.EmailService
-;
+namespace Car_Rental_System.Infrastructure.Services.EmailService;
     internal class EmailSettings
     {
         public const string Section = "EmailSettings";

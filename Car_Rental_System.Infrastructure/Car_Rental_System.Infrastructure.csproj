@@ -13,12 +13,18 @@
     <PackageReference Include="FluentEmail.Smtp" Version="3.0.2" />
     <PackageReference Include="Hangfire" Version="1.8.20" />
     <PackageReference Include="Hangfire.Storage.SQLite" Version="0.4.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.6" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.6" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="9.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Car_Rental_System.Application\Car_Rental_System.Application.csproj" />
+    <ProjectReference Include="..\Car_Rental_System.Domain\Car_Rental_System.Domain.csproj" />
   </ItemGroup>
 
 </Project>

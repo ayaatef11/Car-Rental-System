@@ -1,9 +1,7 @@
-﻿using Car_Rental_System.Infrastructure.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Car_Rental_System.Application.Common.Interfaces;
+using Car_Rental_System.Domain.Entities;
+using Car_Rental_System.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace Car_Rental_System.Infrastructure.Repositories;
 internal class RefreshTokenRepository(AppDbContext dbContext) : IRefreshTokenRepository

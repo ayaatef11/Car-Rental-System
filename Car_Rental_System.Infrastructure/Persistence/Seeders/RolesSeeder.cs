@@ -1,13 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Car_Rental_System.Domain.Constants;
+using Car_Rental_System.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-namespace Car_Rental_System.Infrastructure.Persistence.Seeders
-;
+namespace Car_Rental_System.Infrastructure.Persistence.Seeders;
 
 internal class RolesSeeder(AppDbContext dbContext, UserManager<User> userManager) : ISeeder
 {

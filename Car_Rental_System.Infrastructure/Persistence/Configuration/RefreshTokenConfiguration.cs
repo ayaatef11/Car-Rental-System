@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using Car_Rental_System.Domain.Entities;
 
 
-namespace Car_Rental_System.Infrastructure.Persistence.Configuration
-;
+namespace Car_Rental_System.Infrastructure.Persistence.Configuration;
 internal class RefrehTokenConfiguration : IEntityTypeConfiguration<RefreshToken>
 {
     public void Configure(EntityTypeBuilder<RefreshToken> builder)

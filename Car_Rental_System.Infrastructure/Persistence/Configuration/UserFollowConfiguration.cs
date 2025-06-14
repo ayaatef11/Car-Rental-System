@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Car_Rental_System.Infrastructure.Persistence.Configuration
-;
+﻿using Car_Rental_System.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+namespace Car_Rental_System.Infrastructure.Persistence.Configuration;
 
-namespace BookManagement.Infrastructure.Persistence.Configuration;
+
 internal class UserFollowConfiguration : IEntityTypeConfiguration<UserFollow>
 {
     public void Configure(EntityTypeBuilder<UserFollow> builder)

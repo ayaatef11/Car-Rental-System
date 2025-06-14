@@ -1,8 +1,9 @@
-﻿using Car_Rental_System.Infrastructure.Persistence;
+﻿using Car_Rental_System.Application.Common.Extensions;
+using Car_Rental_System.Application.Common.Interfaces;
+using Car_Rental_System.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-namespace Car_Rental_System.Infrastructure.Repositories
-{
+namespace Car_Rental_System.Infrastructure.Repositories;
     public class GenericRepository<T>:IRepository<T> where T:class
     {
         public AppDbContext _context { get; set; }
@@ -110,4 +111,4 @@ namespace Car_Rental_System.Infrastructure.Repositories
 
         }
     }
-}
+

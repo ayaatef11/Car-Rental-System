@@ -13,4 +13,7 @@
     <SourceRoot Include="C:\Users\Aya Atef\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\Aya Atef\.nuget\packages\entityframework\6.2.0</PkgEntityFramework>
+  </PropertyGroup>
 </Project>

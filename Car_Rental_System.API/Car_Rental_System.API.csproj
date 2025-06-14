@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\Car_Rental_System.Infrastructure\Car_Rental_System.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,25 @@
-﻿using Car_Rental_System.Infrastructure.Services.TokenProvider;
-using Car_Rental_System.Repositories;
+﻿using Car_Rental_System.Application.Common.Interfaces;
+using Car_Rental_System.Domain.Entities;
+using Car_Rental_System.Infrastructure.Identity;
+using Car_Rental_System.Infrastructure.Jobs;
+using Car_Rental_System.Infrastructure.Persistence;
+using Car_Rental_System.Infrastructure.Persistence.Seeders;
+using Car_Rental_System.Infrastructure.Repositories;
+using Car_Rental_System.Infrastructure.Services.EmailService;
+using Car_Rental_System.Infrastructure.Services.Storage;
+using Car_Rental_System.Infrastructure.Services.TokenProvider;
+using Hangfire;
+using Hangfire.Storage.SQLite;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,17 +44,15 @@ public static class DependencyInjection
 
     private static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<ApplicationDbContext>(options =>
+        services.AddDbContext<AppDbContext>(options =>
              options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
         services.AddScoped<ISeeder, RolesSeeder>();
-        services.AddScoped<ISeeder, AuthorsSeeder>();
-        services.AddScoped<ISeeder, BooksSeeder>();
         services.AddScoped<AppSeeder>();
 
         services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
-        services.AddScoped<IUserFollowRepository, UserFollowRepository>();
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        //services.AddScoped<IUserFollowRepository, UserFollowRepository>();
+        services.AddScoped<IUnitOfWork, UnitOfwork>();
 
         return services;
     }
@@ -54,7 +69,7 @@ public static class DependencyInjection
                 options.Password.RequireLowercase = false;
                 options.User.RequireUniqueEmail = true;
             })
-            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
 
         return services;
@@ -82,10 +97,7 @@ public static class DependencyInjection
 
     private static IServiceCollection AddAuthorization(this IServiceCollection services)
     {
-        services.AddScoped<IShelfAuthorizationService, ShelfAuthorizationService>();
-        services.AddScoped<IAuthorAuthorizationService, AuthorAuthorizationService>();
-        services.AddScoped<IQuoteAuthorizationService, QuoteAuthorizationService>();
-        services.AddScoped<IReviewAuthorizationService, ReviewAuthorizationService>();
+        //services.AddScoped<IAuthorAuthorizationService, AuthorAuthorizationService>();
         return services;
     }
 
@@ -145,7 +157,7 @@ public static class DependencyInjection
     {
         var azureBlobStorageSettings = configuration.GetSection(BlobStorageSettings.Section).Get<BlobStorageSettings>();
         services.AddHealthChecks()
-            .AddDbContextCheck<ApplicationDbContext>(name: "Database")
+            .AddDbContextCheck<AppDbContext>(name: "Database")
             .AddAzureBlobStorage(azureBlobStorageSettings.ConnectionString, name: "BlobStorage");
 
         return services;

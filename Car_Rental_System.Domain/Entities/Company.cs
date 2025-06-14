@@ -1,6 +1,4 @@
-﻿namespace Car_Rental_System.Models
-{
-
+﻿namespace Car_Rental_System.Domain.Entities;
     public class Company : Customer
     {
         public string Location { get; set; } = string.Empty;
@@ -8,5 +6,3 @@
 
        
     }
-
-}

@@ -1,9 +1,7 @@
 ﻿using Car_Rental_System.Infrastructure.Persistence;
-using Car_Rental_System.Infrastructure.Repositories;
 using System.Collections;
 
-namespace Car_Rental_System.Repositories
-{
+namespace Car_Rental_System.Infrastructure.Repositories;
     public class UnitOfwork(AppDbContext _storeContext)
     {
         private readonly Hashtable _repositories = [];
@@ -67,4 +65,3 @@ namespace Car_Rental_System.Repositories
             Dispose(false);
         }
     }
-}

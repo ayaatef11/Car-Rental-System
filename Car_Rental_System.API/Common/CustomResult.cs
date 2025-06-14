@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SharedKernel;
 
-namespace Car_Rental_System.Common
-{
+namespace Car_Rental_System.API.Common;
     public static class CustomResult
     {
         public static IActionResult Problem<T>(Result<T> result)

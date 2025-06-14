@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+namespace Car_Rental_System.Application.Common.Responses;
+public class PagedResult<T>
+{
+    public List<T> Items { get; set; } = new();
+    public int PageNumber { get; set; }
+    public int PageSize { get; set; }
+    public int TotalCount { get; set; }
+    public int TotalPages => (int)Math.Ceiling(TotalCount / (double)PageSize);
+    public bool HasNextPage => PageNumber * PageSize < TotalCount;
+    public bool HasPreviousPage => PageNumber > 1;
+
+    public static PagedResult<T> Create(List<T> items, int? pageNumber, int? pageSize, int totalCount)
+    {
+        return new()
+        {
+            Items = items,
+            PageNumber = pageNumber ?? 1,
+            PageSize = pageSize ?? totalCount,
+            TotalCount = totalCount
+        };
+    }
+}

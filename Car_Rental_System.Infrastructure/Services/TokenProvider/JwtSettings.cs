@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Car_Rental_System.Infrastructure.Services.TokenProvider
-;
+﻿
+namespace Car_Rental_System.Infrastructure.Services.TokenProvider;
 internal class JwtSettings
 {
     public const string Section = "JwtSettings";

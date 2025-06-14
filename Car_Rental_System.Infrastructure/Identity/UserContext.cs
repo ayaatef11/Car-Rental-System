@@ -1,10 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Car_Rental_System.Application.Common.Interfaces;
+using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Car_Rental_System.Infrastructure.Identity;
 internal sealed class UserContext(IHttpContextAccessor httpContextAccessor) : IUserContext

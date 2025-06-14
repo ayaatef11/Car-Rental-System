@@ -1,9 +1,9 @@
-﻿using Car_Rental_System.Models;
+﻿using Car_Rental_System.Domain.Constants;
+using Car_Rental_System.Domain.Entities;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace Car_Rental_System.Infrastructure.Persistence
-{
+namespace Car_Rental_System.Infrastructure.Persistence;
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
@@ -16,13 +16,12 @@ namespace Car_Rental_System.Infrastructure.Persistence
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<Person>People { get; set; }
         public DbSet<Reservation> RentalAgreements { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
         }
-
     }
 
-}

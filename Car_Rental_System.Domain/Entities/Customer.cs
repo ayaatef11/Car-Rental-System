@@ -1,8 +1,4 @@
-﻿namespace Car_Rental_System.Models
-{
-    using System;
-    using System.Collections.Generic;
-
+﻿namespace Car_Rental_System.Domain.Entities;
     public  class Customer : IComparable<Customer>
     {
         public int Id { get; set; }
@@ -29,7 +25,4 @@
         public static bool operator >(Customer c1, Customer c2) => c1.CompareTo(c2) > 0;
         public static bool operator ==(Customer c1, Customer c2) => c1.CompareTo(c2) == 0;
         public static bool operator !=(Customer c1, Customer c2) => !(c1 == c2);
-
-    }
-
 }
