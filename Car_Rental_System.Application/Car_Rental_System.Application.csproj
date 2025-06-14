@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Common\Interfaces\Authorization\" />
-    <Folder Include="Reports\Commands\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,7 +2,7 @@
 using Car_Rental_System.Infrastructure.Repositories;
 using MediatR;
 
-namespace Car_Rental_System.Application.Reports.Queries.CheckReservationSize;
+namespace Car_Rental_System.Application.Reservations.Commands.CheckReservationSize;
     internal class CheckReservationSizeQueryHandler : IRequestHandler<CheckReservationSizeQuery, bool>
     {
         private readonly IUnitOfWork _unitOfWork;

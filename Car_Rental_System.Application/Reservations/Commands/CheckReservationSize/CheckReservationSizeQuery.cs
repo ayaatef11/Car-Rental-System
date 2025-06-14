@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Car_Rental_System.Application.Reports.Queries.CheckReservationSize;
+namespace Car_Rental_System.Application.Reservations.Commands.CheckReservationSize;
 internal class CheckReservationSizeQuery : IRequest<bool>
 {
     public int CustomerId { get; }

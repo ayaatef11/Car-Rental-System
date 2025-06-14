@@ -2,7 +2,7 @@
 using Car_Rental_System.Infrastructure.Repositories;
 using MediatR;
 
-namespace Car_Rental_System.Application.Reports.Queries.GetReservationCount;
+namespace Car_Rental_System.Application.Reservations.Queries.GetReservationCount;
 internal class GetReservationCountQueryHandler : IRequestHandler<GetReservationCountQuery, int>
 {
     private readonly IUnitOfWork _unitOfWork;
