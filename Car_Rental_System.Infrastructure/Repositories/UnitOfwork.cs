@@ -2,7 +2,7 @@
 using System.Collections;
 
 namespace Car_Rental_System.Infrastructure.Repositories;
-    public class UnitOfwork(AppDbContext _storeContext)
+    public class UnitOfwork(AppDbContext _storeContext):IUnitOfWork
     {
         private readonly Hashtable _repositories = [];
         private bool _disposed = false;
@@ -60,7 +60,12 @@ namespace Car_Rental_System.Infrastructure.Repositories;
             }
         }
 
-        ~UnitOfwork()
+    public Task<int> SaveChangesAsync()
+    {
+      return  _storeContext.SaveChangesAsync();
+    }
+
+    ~UnitOfwork()
         {
             Dispose(false);
         }

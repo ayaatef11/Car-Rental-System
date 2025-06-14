@@ -1,8 +1,10 @@
-﻿
-namespace Car_Rental_System.Application.Common.Interfaces;
-public interface IUnitOfWork : IDisposable
+﻿using Car_Rental_System.Application.Common.Interfaces;
+
+namespace Car_Rental_System.Infrastructure.Repositories;
+
+public interface IUnitOfWork : IAsyncDisposable, IDisposable
 {
-    //IRepository<Car> Cars { get; }
-   
+    IGenericRepository<T> Repository<T>() where T : class;
+    Task<int> CompleteAsync();
     Task<int> SaveChangesAsync();
 }

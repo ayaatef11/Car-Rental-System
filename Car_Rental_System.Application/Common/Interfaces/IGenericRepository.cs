@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
 
 namespace Car_Rental_System.Application.Common.Interfaces;
-public interface IRepository<T> where T : class
+public interface IGenericRepository<T> where T : class
 {
     Task<T?> GetByIdAsync(string id, params string[] includes);
     Task<IEnumerable<T>> GetAllAsync();

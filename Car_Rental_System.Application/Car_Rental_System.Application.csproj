@@ -7,19 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Auth\" />
-    <Folder Include="AuthClaims\" />
-    <Folder Include="Cars\Commands\AddCar\" />
-    <Folder Include="Cars\Queries\" />
     <Folder Include="Common\Interfaces\Authorization\" />
-    <Folder Include="DTOS\" />
+    <Folder Include="Reports\Commands\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
     <PackageReference Include="EntityFramework" Version="6.2.0" />
     <PackageReference Include="FluentValidation" Version="12.0.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
     <PackageReference Include="MediatR" Version="12.5.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.6" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.1" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.6.6" />
   </ItemGroup>
 
   <ItemGroup>

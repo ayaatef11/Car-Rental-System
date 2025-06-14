@@ -4,7 +4,7 @@ using Car_Rental_System.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 namespace Car_Rental_System.Infrastructure.Repositories;
-    public class GenericRepository<T>:IRepository<T> where T:class
+    public class GenericRepository<T>:IGenericRepository<T> where T:class
     {
         public AppDbContext _context { get; set; }
         protected readonly DbSet<T> _dbSet;
