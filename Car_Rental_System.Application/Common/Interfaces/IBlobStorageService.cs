@@ -1,4 +1,6 @@
 ﻿
+using Car_Rental_System.Domain.Constants;
+
 namespace Car_Rental_System.Application.Common.Interfaces;
     public interface  IBlobStorageService
     {

@@ -1,8 +1,4 @@
-﻿using Car_Rental_System.Domain.Entities;
-using Car_Rental_System.Infrastructure.Repositories;
-using MediatR;
-
-namespace Car_Rental_System.Application.Reservations.Commands.AddReservation;
+﻿namespace Car_Rental_System.Application.Reservations.Commands.AddReservation;
 internal class AddReservationCommandHandler(IUnitOfWork _uow) : IRequestHandler<AddReservationCommand, bool>
 {
     private const int MaxReservationsPerCustomer = 5;

@@ -3,6 +3,7 @@ using Car_Rental_System.Application.Common.Interfaces;
 using Car_Rental_System.Domain.Constants;
 using Car_Rental_System.Domain.Entities;
 using Car_Rental_System.Domain.Errors;
+using Car_Rental_System.Infrastructure.Repositories;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;

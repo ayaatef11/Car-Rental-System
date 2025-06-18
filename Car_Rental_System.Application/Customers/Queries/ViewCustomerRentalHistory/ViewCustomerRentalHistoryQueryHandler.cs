@@ -1,10 +1,7 @@
 ﻿
-using MediatR;
-using global::Car_Rental_System.Infrastructure.Repositories;
 using Car_Rental_System.Domain.Entities;
 namespace Car_Rental_System.Application.Customers.Queries.ViewCustomerRentalHistory;
-    internal class ViewCustomerRentalHistoryQueryHandler(IUnitOfWork _uow)
-                : IRequestHandler<ViewCustomerRentalHistoryQuery, ViewCustomerRentalHistoryResult?>
+    internal class ViewCustomerRentalHistoryQueryHandler(IUnitOfWork _uow):IRequestHandler<ViewCustomerRentalHistoryQuery, ViewCustomerRentalHistoryResult?>
     {
 
     public async Task<ViewCustomerRentalHistoryResult?> Handle( ViewCustomerRentalHistoryQuery request, CancellationToken cancellationToken)

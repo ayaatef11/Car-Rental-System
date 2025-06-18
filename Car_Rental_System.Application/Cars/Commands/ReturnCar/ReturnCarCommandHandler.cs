@@ -1,8 +1,4 @@
-﻿using Car_Rental_System.Domain.Entities;
-using Car_Rental_System.Infrastructure.Repositories;
-
-
-namespace Car_Rental_System.Application.Cars.Commands.ReturnCar;
+﻿namespace Car_Rental_System.Application.Cars.Commands.ReturnCar;
 public class ReturnCarCommandHandler(IUnitOfWork _uof)
 {
     public void Handle(ReturnCarCommand command)

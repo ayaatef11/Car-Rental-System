@@ -1,0 +1,16 @@
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Domain\bin\Debug\net9.0\Car_Rental_System.Domain.deps.json
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Domain\bin\Debug\net9.0\Car_Rental_System.Domain.dll
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Domain\bin\Debug\net9.0\Car_Rental_System.Domain.pdb
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Domain\bin\Debug\net9.0\SharedKernel.dll
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Domain\bin\Debug\net9.0\SharedKernel.pdb
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Domain\obj\Debug\net9.0\Car_Rental_System.Domain.csproj.AssemblyReference.cache
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Domain\obj\Debug\net9.0\Car_Rental_System.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Domain\obj\Debug\net9.0\Car_Rental_System.Domain.AssemblyInfoInputs.cache
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Domain\obj\Debug\net9.0\Car_Rental_System.Domain.AssemblyInfo.cs
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Domain\obj\Debug\net9.0\Car_Rental_System.Domain.csproj.CoreCompileInputs.cache
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Domain\obj\Debug\net9.0\Car_Rental_System.Domain.sourcelink.json
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Domain\obj\Debug\net9.0\Car_Rent.8ED5B5AD.Up2Date
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Domain\obj\Debug\net9.0\Car_Rental_System.Domain.dll
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Domain\obj\Debug\net9.0\refint\Car_Rental_System.Domain.dll
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Domain\obj\Debug\net9.0\Car_Rental_System.Domain.pdb
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Domain\obj\Debug\net9.0\ref\Car_Rental_System.Domain.dll

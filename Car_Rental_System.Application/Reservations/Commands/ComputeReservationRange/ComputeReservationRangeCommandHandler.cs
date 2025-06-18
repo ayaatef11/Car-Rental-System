@@ -1,8 +1,6 @@
-﻿using Car_Rental_System.Domain.Entities;
-using Car_Rental_System.Infrastructure.Repositories;
-using MediatR;
+﻿using Car_Rental_System.Application.Reservations.Commands.ComputeRange;
 
-namespace Car_Rental_System.Application.Reservations.Commands.ComputeRange;
+namespace Car_Rental_System.Application.Reservations.Commands.ComputeReservationRange;
 internal class ComputeReservationRangeCommandHandler(IUnitOfWork _unitOfWork) : IRequestHandler<ComputeReservationRangeCommand, int>
 {
     public async Task<int> Handle(ComputeReservationRangeCommand request, CancellationToken cancellationToken)

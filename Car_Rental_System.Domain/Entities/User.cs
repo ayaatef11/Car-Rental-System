@@ -1,7 +1,6 @@
 ﻿using Car_Rental_System.Domain.Constants;
 using Microsoft.AspNetCore.Identity;
 
-
 namespace Car_Rental_System.Domain.Entities;
 public class User : IdentityUser
 {

@@ -1,5 +1,7 @@
-﻿namespace Car_Rental_System.Domain.Entities;
-    public class Car : IComparable<Car>
+﻿using Car_Rental_System.Domain.Primitives;
+
+namespace Car_Rental_System.Domain.Entities;
+    public class Car :AggregateRoot
     {
         public int Id { get; set; }
         public string Make { get; set; }=string.Empty;
@@ -7,17 +9,6 @@
         public int Year { get; set; }
         public bool Availability { get; set; }
         public List<Reservation> Reservations { get; set; } = new List<Reservation>();
-
-        public Car(List<Reservation> reservations)
-        {
-            Reservations = new List<Reservation>(reservations);
-        }
-
-        public Car() { }
-        public int CompareTo(Car other)
-        {
-            return Reservations.Count.CompareTo(other.Reservations.Count);
-        }
 
         
     }

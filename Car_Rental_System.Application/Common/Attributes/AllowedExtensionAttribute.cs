@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Car_Rental_System.Application.Common.Attributes
-;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
+using SharedKernel;
 using System.ComponentModel.DataAnnotations;
 
-namespace BookManagement.Application.Common.Attributes;
+namespace Car_Rental_System.Application.Common.Attributes;
+
 public class AllowedExtensionsAttribute : ValidationAttribute
 {
     private readonly string[] _extensions;

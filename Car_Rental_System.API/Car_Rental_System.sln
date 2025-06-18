@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Car_Rental_System.Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedKernel", "..\SharedKernel\SharedKernel.csproj", "{430D7E40-500C-4B67-ABF9-C817438EC817}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Car_Rental_System.WebScraping", "..\Car_Rental_System.WebScraping\Car_Rental_System.WebScraping.csproj", "{663B8426-3766-4962-86FF-36162C3A4568}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{430D7E40-500C-4B67-ABF9-C817438EC817}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{430D7E40-500C-4B67-ABF9-C817438EC817}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{430D7E40-500C-4B67-ABF9-C817438EC817}.Release|Any CPU.Build.0 = Release|Any CPU
+		{663B8426-3766-4962-86FF-36162C3A4568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{663B8426-3766-4962-86FF-36162C3A4568}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{663B8426-3766-4962-86FF-36162C3A4568}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{663B8426-3766-4962-86FF-36162C3A4568}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

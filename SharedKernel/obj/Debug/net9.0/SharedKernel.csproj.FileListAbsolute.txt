@@ -1,0 +1,12 @@
+F:\2-back-end\2-Car_Rental_System\SharedKernel\bin\Debug\net9.0\SharedKernel.deps.json
+F:\2-back-end\2-Car_Rental_System\SharedKernel\bin\Debug\net9.0\SharedKernel.dll
+F:\2-back-end\2-Car_Rental_System\SharedKernel\bin\Debug\net9.0\SharedKernel.pdb
+F:\2-back-end\2-Car_Rental_System\SharedKernel\obj\Debug\net9.0\SharedKernel.GeneratedMSBuildEditorConfig.editorconfig
+F:\2-back-end\2-Car_Rental_System\SharedKernel\obj\Debug\net9.0\SharedKernel.AssemblyInfoInputs.cache
+F:\2-back-end\2-Car_Rental_System\SharedKernel\obj\Debug\net9.0\SharedKernel.AssemblyInfo.cs
+F:\2-back-end\2-Car_Rental_System\SharedKernel\obj\Debug\net9.0\SharedKernel.csproj.CoreCompileInputs.cache
+F:\2-back-end\2-Car_Rental_System\SharedKernel\obj\Debug\net9.0\SharedKernel.sourcelink.json
+F:\2-back-end\2-Car_Rental_System\SharedKernel\obj\Debug\net9.0\SharedKernel.dll
+F:\2-back-end\2-Car_Rental_System\SharedKernel\obj\Debug\net9.0\refint\SharedKernel.dll
+F:\2-back-end\2-Car_Rental_System\SharedKernel\obj\Debug\net9.0\SharedKernel.pdb
+F:\2-back-end\2-Car_Rental_System\SharedKernel\obj\Debug\net9.0\ref\SharedKernel.dll

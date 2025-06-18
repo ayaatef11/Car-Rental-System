@@ -1,0 +1,6 @@
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Infrastructure\obj\Debug\net9.0\Car_Rental_System.Infrastructure.csproj.AssemblyReference.cache
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Infrastructure\obj\Debug\net9.0\Car_Rental_System.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Infrastructure\obj\Debug\net9.0\Car_Rental_System.Infrastructure.AssemblyInfoInputs.cache
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Infrastructure\obj\Debug\net9.0\Car_Rental_System.Infrastructure.AssemblyInfo.cs
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Infrastructure\obj\Debug\net9.0\Car_Rental_System.Infrastructure.csproj.CoreCompileInputs.cache
+F:\2-back-end\2-Car_Rental_System\Car_Rental_System.Infrastructure\obj\Debug\net9.0\Car_Rental_System.Infrastructure.sourcelink.json
