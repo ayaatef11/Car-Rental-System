@@ -1,12 +1,7 @@
 ﻿namespace Car_Rental_System.Application.Cars.Queries.GetCarById;
-    internal class GetCarByIdQuery
-    {
-        public int CarId { get; }
-
-        public GetCarByIdQuery(int carId)
-        {
-            CarId = carId;
-        }
-    }
+    public class GetCarByIdQuery(int carId)
+{
+    public int CarId { get; } = carId;
+}
 
 

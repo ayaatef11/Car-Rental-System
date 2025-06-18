@@ -1,35 +1,26 @@
-﻿using Car_Rental_System.Application.Common.Interfaces;
-using Car_Rental_System.Domain.Entities;
-using global::Car_Rental_System.Domain.Entities;
-using global::Car_Rental_System.Infrastructure.Repositories;
-namespace Car_Rental_System.Application.Cars.Commands.UpdateCar;
+﻿namespace Car_Rental_System.Application.Cars.Commands.UpdateCar;
 
 
-    public class UpdateCarCommandHandler
+public class UpdateCarCommandHandler(IUnitOfWork unitOfWork)
+{
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
+
+    public async Task<Car?> Handle(UpdateCarCommand command)
     {
-        private readonly IUnitOfWork _unitOfWork;
+        var repo = _unitOfWork.Repository<Car>();
+        var car = await repo.GetByIdAsync(command.CarId);
 
-        public UpdateCarCommandHandler(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-        }
+        if (car == null) return null;
 
-        public async Task<Car?> Handle(UpdateCarCommand command)
-        {
-            var repo = _unitOfWork.Repository<Car>();
-            var car = await repo.GetByIdAsync(command.CarId);
+        car.Make = command.Make;
+        car.Model = command.Model;
+        car.Year = command.Year;
+        car.PricePerDay = command.PricePerDay;
+        car.Availability = command.IsAvailable;
 
-            if (car == null) return null;
+        repo.Update(car);
+        await _unitOfWork.CompleteAsync();
 
-            car.Make = command.Make;
-            car.Model = command.Model;
-            car.Year = command.Year;
-            car.PricePerDay = command.PricePerDay;
-            car.Availability = command.IsAvailable;
-
-            repo.Update(car);
-            await _unitOfWork.CompleteAsync();
-
-            return car;
-        }
+        return car;
     }
+}

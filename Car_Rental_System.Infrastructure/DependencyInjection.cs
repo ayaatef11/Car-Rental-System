@@ -157,8 +157,8 @@ public static class DependencyInjection
     {
         var azureBlobStorageSettings = configuration.GetSection(BlobStorageSettings.Section).Get<BlobStorageSettings>();
         services.AddHealthChecks()
-            .AddDbContextCheck<AppDbContext>(name: "Database")
-            .AddAzureBlobStorage(azureBlobStorageSettings.ConnectionString, name: "BlobStorage");
+            .AddDbContextCheck<AppDbContext>(name: "Database");
+            //.AddAzureBlobStorage(azureBlobStorageSettings.ConnectionString, name: "BlobStorage");
 
         return services;
     }

@@ -1,9 +1,11 @@
 ﻿using Car_Rental_System.Infrastructure.Parameters;
+using Car_Rental_System.Infrastructure.Persistence;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Car_Rental_System.Infrastructure.Services.Signalr;
 
-public class NotificationService(appdbcontext _context, IHubContext<SignalServer> _hubContext) : INotificationService
+public class NotificationService(AppDbContext _context, IHubContext<SignalServer> _hubContext) : INotificationService
 {
     public async Task<List<Notification>> GetAllNotifications(int nToUserId, bool bIsGetOnlyUnread)
     {

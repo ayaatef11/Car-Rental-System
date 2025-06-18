@@ -1,12 +1,5 @@
-﻿using Car_Rental_System.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Car_Rental_System.Application.Cars.Queries.GetAvailableCars;
-    internal class GetAvailableCarsQuery
+﻿namespace Car_Rental_System.Application.Cars.Queries.GetAvailableCars;
+    public class GetAvailableCarsQuery
     {
     
         public DateTime StartDate { get; set; }

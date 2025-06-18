@@ -1,10 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using SharedKernel;
-
+﻿using Car_Rental_System.Application.Common.Interfaces;
 
 namespace Car_Rental_System.API.Controllers;
     [Route("api/[controller]")]
@@ -147,82 +141,4 @@ namespace Car_Rental_System.API.Controllers;
             var result = await mediator.Send(new GetAllUsersQuery(parameters));
             return Ok(result);
         }
-
-        [HttpGet("me/shelves")]
-        [Authorize]
-        [EndpointSummary("Get shelves for the current user")]
-        [ProducesResponseType(typeof(PagedResult<ShelfDto>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetMyShelves([FromQuery] QueryParameters parameters, string? Shelf)
-        {
-            var userId = userContext.UserId;
-            if (userId is null)
-                return Unauthorized();
-
-            var result = await mediator.Send(new GetUserShelvesQuery(userId, parameters, Shelf));
-            return Ok(result);
-        }
-
-        [HttpGet("{userId}/shelves")]
-        [EndpointSummary("Get shelves for a specific user by ID")]
-        [ProducesResponseType(typeof(PagedResult<ShelfDto>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetUserShelves(string userId, [FromQuery] QueryParameters parameters, string? Shelf)
-        {
-            var result = await mediator.Send(new GetUserShelvesQuery(userId, parameters, Shelf));
-            return Ok(result);
-        }
-
-
-        [HttpGet("me/yearlychallenges")]
-        [Authorize]
-        [EndpointSummary("Get current user's yearly challenges")]
-        [ProducesResponseType(typeof(PagedResult<UserYearChallengeDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<IActionResult> GetMyYearlyChallenges([FromQuery] QueryParameters parameters, [FromQuery] int? year)
-        {
-            var userId = userContext.UserId;
-            var result = await mediator.Send(new GetAllUserYearChallengesQuery(userId, parameters, year));
-            return Ok(result);
-        }
-
-        [HttpGet("me/yearlychallenges/{year:int}")]
-        [Authorize]
-        [EndpointSummary("Get details of a specific yearly")]
-        [ProducesResponseType(typeof(UserYearChallengeDetailsDto), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<IActionResult> GetMyYearlyChallengeDetails(int year)
-        {
-            var userId = userContext.UserId;
-            var result = await mediator.Send(new GetUserYearChallengeQuery(userId, year));
-            return result.Match(
-                challenge => Ok(ApiResponse<UserYearChallengeDetailsDto>.Success(challenge)),
-                failure => CustomResults.Problem(failure)
-            );
-        }
-
-        [HttpGet("{userId}/reviews/")]
-        [EndpointSummary("Get reviews for a user")]
-        [ProducesResponseType(typeof(PagedResult<BookReviewDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetUserReviews(string userId, [FromQuery] QueryParameters parameters)
-        {
-            var result = await mediator.Send(new GetAllReviewsQuery(parameters, userId, null));
-            return Ok(result);
-        }
-
-        [HttpGet("me/reviews/")]
-        [Authorize]
-        [EndpointSummary("Get current user's reviews")]
-        [ProducesResponseType(typeof(PagedResult<BookReviewDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetCurrentUserReviews([FromQuery] QueryParameters parameters)
-        {
-            var userId = userContext.UserId;
-            if (userId is null)
-                return Unauthorized();
-            var result = await mediator.Send(new GetAllReviewsQuery(parameters, userId, null));
-            return Ok(result);
-        }
-
-
     }

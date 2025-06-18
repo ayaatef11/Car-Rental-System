@@ -13,10 +13,8 @@ public class User : IdentityUser
     public string? WebsiteUrl { get; set; }
     public string? Country { get; set; } = default!;
     public Social Social { get; set; } = default!;
-
     public ICollection<UserFollow> Followers { get; set; } = new List<UserFollow>();
     public ICollection<UserFollow> Following { get; set; } = new List<UserFollow>();
-
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 }
 

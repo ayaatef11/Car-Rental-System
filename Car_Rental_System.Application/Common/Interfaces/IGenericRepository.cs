@@ -3,7 +3,7 @@
 namespace Car_Rental_System.Application.Common.Interfaces;
 public interface IGenericRepository<T> where T : class
 {
-    Task<T?> GetByIdAsync(string id, params string[] includes);
+    Task<T?> GetByIdAsync(int id, params string[] includes);
     Task<IEnumerable<T>> GetAllAsync();
     Task<(IEnumerable<T> Items, int Count)> GetAllAsync(
         Expression<Func<T, bool>> filter = null,
@@ -19,5 +19,5 @@ public interface IGenericRepository<T> where T : class
     void Delete(T entity);
     Task<int> CountAsync(Expression<Func<T, bool>>? filter = null);
     Task<T?> GetSingleOrDefaultAsync(Expression<Func<T, bool>> filter, string[]? includes = null);
-
+    T Get(int id);
 }

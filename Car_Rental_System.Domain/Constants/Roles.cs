@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Car_Rental_System.Domain.Constants;
-public static class Roles
+public  class Role
 {
-    public const string Admin = "Admin";
-    public const string User = "User";
+    public string Name{ get; set; } 
+    public string NormalizedName{ get; set; }
+}
+public enum Roles
+{
+   User,Admin
 }

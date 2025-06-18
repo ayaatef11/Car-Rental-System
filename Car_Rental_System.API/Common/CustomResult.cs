@@ -19,7 +19,7 @@ namespace Car_Rental_System.API.Common;
                 StatusCode = problemDetails.Status
             };
         }
-    }
+    
      public static IActionResult Problem(Result result)
         {
             if (result.IsSuccess)

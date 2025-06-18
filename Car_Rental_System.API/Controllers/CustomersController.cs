@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Car_Rental_System.Application.Customers.Commands.AddCustomer;
+using Car_Rental_System.Application.Customers.Commands.DeleteCustomer;
+using Car_Rental_System.Application.Customers.Commands.UpdateCustomer;
+using Car_Rental_System.Application.Customers.Queries.GetAllCustomers;
+using Car_Rental_System.Application.Customers.Queries.GetCustomer;
+using Car_Rental_System.Application.Customers.Queries.ViewCustomerRentalHistory;
 
 namespace Car_Rental_System.API.Controllers;
 

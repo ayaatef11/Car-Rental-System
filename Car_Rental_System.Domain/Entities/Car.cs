@@ -1,7 +1,7 @@
 ﻿using Car_Rental_System.Domain.Primitives;
 
 namespace Car_Rental_System.Domain.Entities;
-    public class Car :AggregateRoot
+    public class Car 
     {
         public int Id { get; set; }
         public string Make { get; set; }=string.Empty;
@@ -9,8 +9,7 @@ namespace Car_Rental_System.Domain.Entities;
         public int Year { get; set; }
         public bool Availability { get; set; }
         public List<Reservation> Reservations { get; set; } = new List<Reservation>();
-
-        
-    }
+    public decimal PricePerDay { get; set; }
+}
 
 

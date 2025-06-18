@@ -1,15 +1,8 @@
 ﻿using Car_Rental_System.Domain.Entities;
 using Car_Rental_System.Infrastructure.Repositories;
 namespace Car_Rental_System.Application.Cars.Commands.DeleteCar;
-public class DeleteCarCommandHandler
+public class DeleteCarCommandHandler(IUnitOfWork _unitOfWork)
 {
-    private readonly IUnitOfWork _unitOfWork;
-
-    public DeleteCarCommandHandler(IUnitOfWork unitOfWork)
-    {
-        _unitOfWork = unitOfWork;
-    }
-
     public async Task Handle(DeleteCarCommand command)
     {
         var carRepo = _unitOfWork.Repository<Car>();

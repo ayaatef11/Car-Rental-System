@@ -5,9 +5,9 @@ namespace Car_Rental_System.Domain.Entities;
 public class Reservation  
 {
     public int Id { get; set; }
-    public Tuple<Date, Date> DateRange { get; set; }
-    public Date StartDate { get; set; }
-    public Date EndDate { get; set; }
+    public Tuple<DateTime, DateTime> DateRange { get; set; }
+    public DateTime StartDate { get; set; }
+    public DateTime EndDate { get; set; }
     public Car Car { get; set; }
     public Customer Customer { get; set; }
     public int CustomerId { get; set; }

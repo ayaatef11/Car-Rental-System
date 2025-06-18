@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace Car_Rental_System.Application.Reservations.Commands.DeleteReservation;
+﻿namespace Car_Rental_System.Application.Reservations.Commands.DeleteReservation;
 internal class DeleteReservationCommand : IRequest<bool>
 {
     public int ReservationId { get; }

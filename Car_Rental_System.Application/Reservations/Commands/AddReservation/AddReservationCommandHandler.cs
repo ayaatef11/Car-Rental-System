@@ -6,7 +6,7 @@ internal class AddReservationCommandHandler(IUnitOfWork _uow) : IRequestHandler<
     public async Task<bool> Handle(AddReservationCommand request, CancellationToken cancellationToken)
     {
         var car = await _uow.Repository<Car>().GetByIdAsync(request.CarId);
-        var customer = await _uow.Repository<Customer>().GetByIdWithReservationsAsync(request.CustomerId);
+        var customer = await _uow.Repository<Customer>().GetByIdAsync(request.CustomerId);//WithReservations
 
         if (car == null || customer == null)
             return false;

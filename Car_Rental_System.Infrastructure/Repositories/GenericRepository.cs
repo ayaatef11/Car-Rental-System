@@ -15,13 +15,13 @@ namespace Car_Rental_System.Infrastructure.Repositories;
             _dbSet = context.Set<T>();
 
         }
-        public async Task<T?> GetByIdAsync(string id, params string[] includes)
+        public async Task<T?> GetByIdAsync(int id, params string[] includes)
         {
             var query = _dbSet.AsQueryable();
 
             query = query.ApplyIncludes(includes);
 
-            return await query.FirstOrDefaultAsync(e => EF.Property<string>(e, "Id") == id);
+            return await query.FirstOrDefaultAsync(e => EF.Property<int>(e, "Id") == id);
         }
 
         public async Task<IEnumerable<T>> GetAllAsync() => await _dbSet.ToListAsync();
@@ -67,9 +67,11 @@ namespace Car_Rental_System.Infrastructure.Repositories;
         public void Delete(T entity)
         {
             _dbSet.Remove(entity);
-        }
+        _context.SaveChanges();
 
-        public async Task<int> CountAsync(Expression<Func<T, bool>>? filter = null)
+    }
+
+    public async Task<int> CountAsync(Expression<Func<T, bool>>? filter = null)
         {
             return await _dbSet.CountAsync(filter ?? (_ => true));
         }
@@ -86,12 +88,7 @@ namespace Car_Rental_System.Infrastructure.Repositories;
             _context.Add(entity);
             _context.SaveChanges();
 
-        }
-        public void Delete(T entity) { 
-        _context.Remove(entity);
-            _context.SaveChanges();
-
-        }
+        } 
 
         public T Get(int id) {
             return _context.Set<T>().Find(id);
@@ -107,7 +104,6 @@ namespace Car_Rental_System.Infrastructure.Repositories;
 
         public List<T> GetAll() {
             return _context.Set<T>().ToList();
-
 
         }
     }

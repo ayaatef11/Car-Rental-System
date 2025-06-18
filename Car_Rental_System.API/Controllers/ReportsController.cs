@@ -1,10 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Car_Rental_System.Application.Reports.Queries;
-using Car_Rental_System.Domain.DTOs;
-using Car_Rental_System.Shared;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
+﻿using Car_Rental_System.Application.Reports.Queries.GetCarRentalReportQuery;
+using Car_Rental_System.Application.Reports.Queries.GetCustomerRentalReportQuery;
 
 namespace Car_Rental_System.API.Controllers;
 

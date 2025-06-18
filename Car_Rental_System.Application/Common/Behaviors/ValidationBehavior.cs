@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-using MediatR;
-using System.ComponentModel.DataAnnotations;
+﻿
 namespace Car_Rental_System.Application.Common.Behaviors;
 public class ValidationBehavior<TRequest, TResponse>(IEnumerable<IValidator<TRequest>> _validators) : IPipelineBehavior<TRequest, TResponse>
 {

@@ -1,20 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Car_Rental_System.Application.Cars.Commands.AddCar;
-using Car_Rental_System.Application.Cars.Commands.DeleteCar;
-using Car_Rental_System.Application.Cars.Commands.UpdateCar;
-using Car_Rental_System.Application.Cars.Commands.RentCar;
-using Car_Rental_System.Application.Cars.Commands.ReturnCar;
-using Car_Rental_System.Application.Cars.Queries.GetAllCars;
-using Car_Rental_System.Application.Cars.Queries.GetAvailableCars;
-using Car_Rental_System.Application.Cars.Queries.GetCarById;
-using Car_Rental_System.Domain.DTOs;
-using Car_Rental_System.Shared;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
-
-
-namespace Car_Rental_System.API.Controllers;
+﻿namespace Car_Rental_System.API.Controllers;
     [Route("api/[controller]")]
     [ApiController]
 

@@ -1,5 +1,4 @@
-﻿
-namespace Car_Rental_System.API.Controllers;
+﻿namespace Car_Rental_System.API.Controllers;
     [Route("api/[controller]")]
     [ApiController]
 public class AuthController(IMediator mediator) : ControllerBase

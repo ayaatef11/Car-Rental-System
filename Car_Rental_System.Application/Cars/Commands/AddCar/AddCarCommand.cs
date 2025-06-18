@@ -1,5 +1,4 @@
-﻿using MediatR;
-namespace Car_Rental_System.Application.Cars.Commands.AddCar;
+﻿namespace Car_Rental_System.Application.Cars.Commands.AddCar;
 public class AddCarCommand : IRequest<int>
 {
     public string Make { get; set; }

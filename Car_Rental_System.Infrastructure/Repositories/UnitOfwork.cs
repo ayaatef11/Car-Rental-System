@@ -1,4 +1,5 @@
-﻿using Car_Rental_System.Infrastructure.Persistence;
+﻿using Car_Rental_System.Application.Common.Interfaces;
+using Car_Rental_System.Infrastructure.Persistence;
 using System.Collections;
 
 namespace Car_Rental_System.Infrastructure.Repositories;
@@ -7,7 +8,7 @@ namespace Car_Rental_System.Infrastructure.Repositories;
         private readonly Hashtable _repositories = [];
         private bool _disposed = false;
         //
-        public GenericRepository<T> Repository<T>() where T : class
+        public IGenericRepository<T> Repository<T>() where T : class
         {
             var key = typeof(T).Name;
 
@@ -65,6 +66,7 @@ namespace Car_Rental_System.Infrastructure.Repositories;
       return  _storeContext.SaveChangesAsync();
     }
 
+  
     ~UnitOfwork()
         {
             Dispose(false);

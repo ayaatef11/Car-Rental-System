@@ -1,7 +1,4 @@
-﻿using Car_Rental_System.Domain.Entities;
-using MediatR;
-using Car_Rental_System.Infrastructure.Repositories;
-namespace Car_Rental_System.Application.Cars.Commands.AddCar;
+﻿namespace Car_Rental_System.Application.Cars.Commands.AddCar;
 
 public class AddCarCommandHandler(IUnitOfWork _UOF) : IRequestHandler<AddCarCommand, int>
 {

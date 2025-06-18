@@ -1,7 +1,5 @@
-﻿using MediatR;
-
-namespace Car_Rental_System.Application.Reservations.Commands.ComputeRange;
-internal class ComputeReservationRangeCommand : IRequest<int>
+﻿namespace Car_Rental_System.Application.Reservations.Commands.ComputeRange;
+public class ComputeReservationRangeCommand : IRequest<int>
 {
     public int ReservationId { get; }
 

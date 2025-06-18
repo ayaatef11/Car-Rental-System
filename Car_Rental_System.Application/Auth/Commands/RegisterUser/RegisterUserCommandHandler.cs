@@ -31,7 +31,7 @@ internal class RegisterUserCommandHandler(UserManager<User> _userManager, IMappe
         if (!result.Succeeded)
             return Result<string>.Fail(UserErrors.CreateUserFailed(result.Errors.First().Description));
 
-        await _userManager.AddToRoleAsync(user, Roles.User);
+        await _userManager.AddToRoleAsync(user, Roles.User.ToString());
         await _unitOfWork.SaveChangesAsync();
 
         var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);

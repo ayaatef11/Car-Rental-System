@@ -22,16 +22,16 @@ internal class RolesSeeder(AppDbContext dbContext, UserManager<User> userManager
             };
             var createResult = await userManager.CreateAsync(adminUser, "admin123");
             if (createResult.Succeeded)
-                await userManager.AddToRoleAsync(adminUser, Roles.Admin);
+                await userManager.AddToRoleAsync(adminUser, Roles.Admin.ToString());
         }
     }
 
-    private List<IdentityRole> GetRoles()
+    private List<Role> GetRoles()
     {
-        return new List<IdentityRole>
+        return new List<Role>
         {
-            new IdentityRole { Name = Roles.User , NormalizedName = Roles.User },
-            new IdentityRole { Name = Roles.Admin , NormalizedName = Roles.Admin }
+            new Role { Name = Roles.User.ToString() , NormalizedName = Roles.User.ToString() },
+            new Role { Name = Roles.Admin.ToString() , NormalizedName = Roles.Admin.ToString() }
         };
     }
 }

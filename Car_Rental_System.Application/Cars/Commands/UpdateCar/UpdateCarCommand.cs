@@ -1,6 +1,4 @@
-﻿
-
-namespace Car_Rental_System.Application.Cars.Commands.UpdateCar;
+﻿namespace Car_Rental_System.Application.Cars.Commands.UpdateCar;
 public class UpdateCarCommand
 {
     public int CarId { get; set; }

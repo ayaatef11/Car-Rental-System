@@ -1,6 +1,6 @@
-﻿namespace Car_Rental_System.Infrastructure.Services.Signalr
-{
-    internal class SignalServer
+﻿using Microsoft.AspNetCore.SignalR;
+
+namespace Car_Rental_System.Infrastructure.Services.Signalr;
+    public class SignalServer:Hub
     {
     }
-}

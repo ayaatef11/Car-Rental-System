@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
+
 namespace Car_Rental_System.API.Controllers;
 
     [Route("api/[controller]")]

@@ -1,8 +1,4 @@
-﻿using Car_Rental_System.Domain.Entities;
-using Car_Rental_System.Infrastructure.Repositories;
-using MediatR;
-
-namespace Car_Rental_System.Application.Customers.Queries.GetAllCustomers;
+﻿namespace Car_Rental_System.Application.Customers.Queries.GetAllCustomers;
 internal class GetAllCustomersQueryHandler(IUnitOfWork _UOF) : IRequestHandler<GetAllCustomersQuery, IEnumerable<Customer>>
 {
 
