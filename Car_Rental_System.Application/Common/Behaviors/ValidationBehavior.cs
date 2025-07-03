@@ -1,5 +1,4 @@
-﻿
-namespace Car_Rental_System.Application.Common.Behaviors;
+﻿namespace Car_Rental_System.Application.Common.Behaviors;
 public class ValidationBehavior<TRequest, TResponse>(IEnumerable<IValidator<TRequest>> _validators) : IPipelineBehavior<TRequest, TResponse>
 {
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
