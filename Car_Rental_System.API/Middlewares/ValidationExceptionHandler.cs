@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
-namespace Car_Rental_System.Middlewares
-;
+namespace Car_Rental_System.API.Middlewares;
 public sealed class ValidationExceptionHandler(IProblemDetailsService problemDetailsService) : IExceptionHandler
 {
     public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
@@ -11,11 +9,11 @@ public sealed class ValidationExceptionHandler(IProblemDetailsService problemDet
         if (exception is not ValidationException validationException)
             return false;
 
-        var errors = validationException.Errors
-            .GroupBy(e => e.PropertyName)
-            .ToDictionary(
-                g => g.Key,
-                g => g.Select(e => e.ErrorMessage).ToArray());
+        //var errors = validationException.Errors
+        //    .GroupBy(e => e.PropertyName)
+        //    .ToDictionary(
+        //        g => g.Key,
+        //        g => g.Select(e => e.ErrorMessage).ToArray());
 
         var problemDetails = new ProblemDetails
         {
@@ -24,7 +22,7 @@ public sealed class ValidationExceptionHandler(IProblemDetailsService problemDet
             Status = StatusCodes.Status400BadRequest
         };
 
-        problemDetails.Extensions.Add("errors", errors);
+        //problemDetails.Extensions.Add("errors", errors);
 
         httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
 
