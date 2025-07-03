@@ -1,9 +1,6 @@
-﻿
-using Car_Rental_System.Domain.Entities;
-
-namespace Car_Rental_System.Application.Common.Interfaces;
+﻿namespace Car_Rental_System.Application.Common.Interfaces;
 public interface ITokenProvider
 {
-    Task<string> GenerateAccessTokenAsync(User user);
-    Task<string> GenerateAndStoreRefreshTokenAsync(User user, string jwtId);
+    Task<string> GenerateAccessTokenAsync(AppUser user);
+    Task<string> GenerateAndStoreRefreshTokenAsync(AppUser user, string jwtId);
 }

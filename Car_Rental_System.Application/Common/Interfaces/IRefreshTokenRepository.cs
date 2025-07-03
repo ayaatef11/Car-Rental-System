@@ -1,7 +1,4 @@
-﻿
-using Car_Rental_System.Domain.Entities;
-
-namespace Car_Rental_System.Application.Common.Interfaces;
+﻿namespace Car_Rental_System.Application.Common.Interfaces;
 public interface IRefreshTokenRepository
 {
     Task AddAsync(RefreshToken token);

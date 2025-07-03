@@ -1,6 +1,4 @@
-﻿using Car_Rental_System.Application.Common.Interfaces;
-
-namespace Car_Rental_System.Infrastructure.Repositories;
+﻿namespace Car_Rental_System.Application.Common.Interfaces;
 
 public interface IUnitOfWork : IAsyncDisposable, IDisposable
 {

@@ -1,17 +1,11 @@
-﻿using System.Linq.Expressions;
-
-namespace Car_Rental_System.Application.Common.Interfaces;
+﻿namespace Car_Rental_System.Application.Common.Interfaces;
 public interface IGenericRepository<T> where T : class
 {
     Task<T?> GetByIdAsync(int id, params string[] includes);
-    Task<IEnumerable<T>> GetAllAsync();
+    Task<IReadOnlyList<T>> GetAllAsync();
     Task<(IEnumerable<T> Items, int Count)> GetAllAsync(
         Expression<Func<T, bool>> filter = null,
-        string[]? includes = null,
-        string? sortColumn = null,
-        string? sortOrder = null,
-        int? pageNumber = null,
-        int? pageSize = null);
+        string[]? includes = null,string? sortColumn = null,string? sortOrder = null,int? pageNumber = null,int? pageSize = null);
 
     Task AddAsync(T entity);
     Task AddRangeAsync(IEnumerable<T> entities);
