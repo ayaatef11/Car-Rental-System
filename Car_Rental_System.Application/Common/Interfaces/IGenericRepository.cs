@@ -14,4 +14,7 @@ public interface IGenericRepository<T> where T : class
     Task<int> CountAsync(Expression<Func<T, bool>>? filter = null);
     Task<T?> GetSingleOrDefaultAsync(Expression<Func<T, bool>> filter, string[]? includes = null);
     T Get(int id);
+    Task<T?> GetByIdWithSpecAsync(ISpecifications<T> spec);
+    Task<IReadOnlyList<T>> GetAllWithSpecAsync(ISpecifications<T> spec);
+    Task<int> GetCountAsync(ISpecifications<T> spec);
 }
