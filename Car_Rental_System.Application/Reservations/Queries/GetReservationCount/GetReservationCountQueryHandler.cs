@@ -1,5 +1,4 @@
-﻿
-namespace Car_Rental_System.Application.Reservations.Queries.GetReservationCount;
+﻿namespace Car_Rental_System.Application.Reservations.Queries.GetReservationCount;
 internal class GetReservationCountQueryHandler(IUnitOfWork _unitOfWork) : IRequestHandler<GetReservationCountQuery, int>
 {
     public async Task<int> Handle(GetReservationCountQuery request, CancellationToken cancellationToken)

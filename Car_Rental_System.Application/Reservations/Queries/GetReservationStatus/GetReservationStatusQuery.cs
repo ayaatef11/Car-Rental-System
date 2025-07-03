@@ -1,5 +1,4 @@
-﻿using Car_Rental_System.Domain.Constants;
-namespace Car_Rental_System.Application.Reservations.Queries.GetReservationStatus;
+﻿namespace Car_Rental_System.Application.Reservations.Queries.GetReservationStatus;
 public class GetReservationStatusQuery : IRequest<ReservationStatus?>
 {
     public int ReservationId { get; }
