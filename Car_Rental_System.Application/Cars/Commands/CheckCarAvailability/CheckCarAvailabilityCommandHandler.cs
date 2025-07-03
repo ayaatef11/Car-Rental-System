@@ -1,12 +1,13 @@
-﻿namespace Car_Rental_System.Application.Cars.Commands.CheckCarAvailability;
+﻿
+namespace Car_Rental_System.Application.Cars.Commands.CheckCarAvailability;
 
-public class CheckCarAvailabilityCommandHandler(IUnitOfWork _unitOfWork)
+public class CheckCarAvailabilityCommandHandler(IUnitOfWork _unitOfWork):IRequestHandler<CheckCarAvailabilityCommand,Result<bool>>
 {
-
-    public async Task<bool> Handle(CheckCarAvailabilityCommand command)
+    public async Task<Result<bool>> Handle(CheckCarAvailabilityCommand command, CancellationToken cancellationToken)
     {
         var car = await _unitOfWork.Repository<Car>().GetByIdAsync(command.CarId);
-        if (car == null) throw new Exception("Car not found");
+        if (car == null) return Result<bool>.Fail(UserErrors.NotFound("Car not found"));
+
 
         foreach (var res in car.Reservations)
         {
@@ -14,14 +15,15 @@ public class CheckCarAvailabilityCommandHandler(IUnitOfWork _unitOfWork)
             {
                 car.Availability = false;
                 await _unitOfWork.CompleteAsync();
-                return false;
+                return Result<bool>.Fail(UserErrors.NotFound("overlabs"));
             }
         }
 
         car.Availability = true;
         await _unitOfWork.CompleteAsync();
-        return true;
+        return Result<bool>.Ok(true);
     }
+
 
     private bool Overlap(DateTime resStart, DateTime resEnd, DateTime newStart, DateTime newEnd)
     {
