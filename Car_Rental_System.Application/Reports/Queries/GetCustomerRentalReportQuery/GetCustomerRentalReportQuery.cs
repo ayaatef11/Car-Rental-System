@@ -1,5 +1,5 @@
 ﻿namespace Car_Rental_System.Application.Reports.Queries.GetCustomerRentalReportQuery;
 
-public class GetCustomerRentalReportQuery : IRequest<List<CustomerRentalHistoryDto>> { }
+public record GetCustomerRentalReportQuery(int customerId) : IRequest<List<CustomerRentalHistoryDto>> { }
 
 

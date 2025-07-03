@@ -3,13 +3,14 @@ internal class GetCustomerRentalReportQueryHandler(IUnitOfWork _uow) : IRequestH
 {
     public async Task<List<CustomerRentalHistoryDto>> Handle(GetCustomerRentalReportQuery request, CancellationToken cancellationToken)
     {
-        var customers = await _uow.Repository<Customer>().GetAllAsync();//WithRentals
+        var customer =  _uow.Repository<Customer>().Get(request.customerId);
+        var reseravations = customer.Reservations;
 
-        return customers.Select(c => new CustomerRentalHistoryDto
+        return reseravations.Select(c => new CustomerRentalHistoryDto
         {
-            CustomerId = c.Id,
-            FullName = c.FullName,
-            //TotalRentals = c.Rental\s.Count
+            CarId = c.CarId,
+            StartDate = c.StartDate,
+            EndDate = c.EndDate 
         }).ToList();
     }
 }
