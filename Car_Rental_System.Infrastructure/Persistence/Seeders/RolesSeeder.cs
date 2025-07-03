@@ -1,10 +1,5 @@
-﻿using Car_Rental_System.Domain.Constants;
-using Car_Rental_System.Domain.Entities;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-namespace Car_Rental_System.Infrastructure.Persistence.Seeders;
-
-internal class RolesSeeder(AppDbContext dbContext, UserManager<User> userManager) : ISeeder
+﻿namespace Car_Rental_System.Infrastructure.Persistence.Seeders;
+internal class RolesSeeder(AppDbContext dbContext, UserManager<AppUser> userManager) : ISeeder
 {
     public async Task SeedAsync()
     {
@@ -15,7 +10,7 @@ internal class RolesSeeder(AppDbContext dbContext, UserManager<User> userManager
             await dbContext.Roles.AddRangeAsync(roles);
             await dbContext.SaveChangesAsync();
 
-            var adminUser = new User
+            var adminUser = new AppUser
             {
                 UserName = "admin",
                 Email = "admin@admin.com",
@@ -26,12 +21,12 @@ internal class RolesSeeder(AppDbContext dbContext, UserManager<User> userManager
         }
     }
 
-    private List<Role> GetRoles()
+    private List<IdentityRole> GetRoles()
     {
-        return new List<Role>
+        return new List<IdentityRole>
         {
-            new Role { Name = Roles.User.ToString() , NormalizedName = Roles.User.ToString() },
-            new Role { Name = Roles.Admin.ToString() , NormalizedName = Roles.Admin.ToString() }
+            new IdentityRole { Name = Roles.User , NormalizedName = Roles.User },
+            new IdentityRole { Name = Roles.Admin , NormalizedName = Roles.Admin }
         };
     }
 }

@@ -1,13 +1,4 @@
-﻿using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Localization;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Car_Rental_System.Infrastructure.Localization;
+﻿namespace Car_Rental_System.Infrastructure.Localization;
 public class JsonStringLocalizer(IDistributedCache _cache) : IStringLocalizer
 {
     private readonly JsonSerializer _serializer = new();

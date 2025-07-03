@@ -1,8 +1,4 @@
-﻿using Car_Rental_System.Application.Common.Interfaces;
-using Microsoft.AspNetCore.Http;
-using System.Security.Claims;
-
-namespace Car_Rental_System.Infrastructure.Identity;
+﻿namespace Car_Rental_System.Infrastructure.Identity;
 internal sealed class UserContext(IHttpContextAccessor httpContextAccessor) : IUserContext
 {
     public string? UserId =>

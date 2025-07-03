@@ -1,13 +1,4 @@
-﻿
-using Azure.Storage;
-using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
-using Azure.Storage.Sas;
-using Car_Rental_System.Application.Common.Interfaces;
-using Car_Rental_System.Domain.Constants;
-using Microsoft.Extensions.Options;
-
-namespace Car_Rental_System.Infrastructure.Services.Storage;
+﻿namespace Car_Rental_System.Infrastructure.Services.Storage;
 
 internal class BlobStorageService(IOptions<BlobStorageSettings> options) : IBlobStorageService
 {

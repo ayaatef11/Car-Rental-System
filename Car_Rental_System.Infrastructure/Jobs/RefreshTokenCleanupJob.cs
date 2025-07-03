@@ -1,7 +1,4 @@
-﻿using Car_Rental_System.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
-
-namespace Car_Rental_System.Infrastructure.Jobs;
+﻿namespace Car_Rental_System.Infrastructure.Jobs;
 internal class RefreshTokenCleanupJob(AppDbContext context)
 {
     public async Task RunAsync()

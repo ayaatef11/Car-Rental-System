@@ -1,12 +1,4 @@
-﻿using Car_Rental_System.Infrastructure.Parameters;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Car_Rental_System.Infrastructure.Services.Signalr;
+﻿namespace Car_Rental_System.Infrastructure.Services.Signalr;
 public interface INotificationService
 {
     Task<List<Notification>> GetAllNotifications(int nToUserId, bool getOnlyUnRead);

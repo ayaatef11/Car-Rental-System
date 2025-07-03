@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-
-namespace Car_Rental_System.Infrastructure.Services.TokenProvider;
+﻿namespace Car_Rental_System.Infrastructure.Services.TokenProvider;
 internal sealed class TokenProviderConfiguration(IOptions<JwtSettings> jwtSettings): IConfigureNamedOptions<JwtBearerOptions>
 {
     private readonly JwtSettings _jwtSettings = jwtSettings.Value;

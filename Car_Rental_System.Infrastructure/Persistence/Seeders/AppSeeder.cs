@@ -1,6 +1,4 @@
 ﻿
-using Microsoft.Extensions.DependencyInjection;
-
 namespace Car_Rental_System.Infrastructure.Persistence.Seeders;
 public class AppSeeder(IServiceProvider serviceProvider)
 {

@@ -1,7 +1,4 @@
-﻿using Car_Rental_System.Infrastructure.Jobs;
-using Hangfire;
-
-namespace Car_Rental_System.Infrastructure.Configurations;
+﻿namespace Car_Rental_System.Infrastructure.Configurations;
 public static class HangfireJobsConfigurator
 {
     public static void ConfigureRecurringJobs()

@@ -1,9 +1,4 @@
-﻿using Car_Rental_System.Application.Common.Interfaces;
-using Car_Rental_System.Domain.Entities;
-using Car_Rental_System.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
-
-namespace Car_Rental_System.Infrastructure.Repositories;
+﻿namespace Car_Rental_System.Infrastructure.Repositories;
 internal class RefreshTokenRepository(AppDbContext dbContext) : IRefreshTokenRepository
 {
     public async Task AddAsync(RefreshToken token)

@@ -1,26 +1,13 @@
-﻿using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using Car_Rental_System.Application.Common.Interfaces;
-using Car_Rental_System.Domain.Entities;
-
-namespace Car_Rental_System.Infrastructure.Services.TokenProvider;
-
-
+﻿namespace Car_Rental_System.Infrastructure.Services.TokenProvider;
 internal class JwtTokeProvider : ITokenProvider
 {
     private readonly JwtSettings _jwtSettings;
-    private readonly UserManager<User> _userManager;
+    private readonly UserManager<AppUser> _userManager;
     private readonly IRefreshTokenRepository _refreshTokenRepository;
 
     public JwtTokeProvider(
         IOptions<JwtSettings> jwtSettings,
-        UserManager<User> userManager,
+        UserManager<AppUser> userManager,
         IRefreshTokenRepository refreshTokenRepository)
     {
         _jwtSettings = jwtSettings.Value;
@@ -28,7 +15,7 @@ internal class JwtTokeProvider : ITokenProvider
         _refreshTokenRepository = refreshTokenRepository;
     }
 
-    public async Task<string> GenerateAccessTokenAsync(User user)
+    public async Task<string> GenerateAccessTokenAsync(AppUser user)
     {
         var claims = new List<Claim>
         {
@@ -57,7 +44,7 @@ internal class JwtTokeProvider : ITokenProvider
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
-    public async Task<string> GenerateAndStoreRefreshTokenAsync(User user, string jwtId)
+    public async Task<string> GenerateAndStoreRefreshTokenAsync(AppUser user, string jwtId)
     {
         var token = Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
 
@@ -68,7 +55,8 @@ internal class JwtTokeProvider : ITokenProvider
             UserId = user.Id,
             IsUsed = false,
             IsRevoked = false,
-            ExpiryDate = DateTime.UtcNow.AddDays(7)
+            ExpiryDate = DateTime.UtcNow.AddDays(7),
+            User=user
         };
 
         await _refreshTokenRepository.AddAsync(refreshToken);

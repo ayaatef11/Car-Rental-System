@@ -1,8 +1,4 @@
-﻿using Car_Rental_System.Application.Common.Interfaces;
-using Car_Rental_System.Infrastructure.Persistence;
-using System.Collections;
-
-namespace Car_Rental_System.Infrastructure.Repositories;
+﻿namespace Car_Rental_System.Infrastructure.Repositories;
     public class UnitOfwork(AppDbContext _storeContext):IUnitOfWork
     {
         private readonly Hashtable _repositories = [];
