@@ -21,7 +21,7 @@ public class CarsController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> UpdateCar([FromBody] UpdateCarCommand command)
     {
         var result = await mediator.Send(command);
-        return Ok(ApiResponse<bool>.Success(result, "Car updated successfully"));
+        return Ok(ApiResponse<object?>.Success(result, "Car updated successfully"));
     }
 
     [HttpDelete("{id}")]
@@ -33,26 +33,17 @@ public class CarsController(IMediator mediator) : ControllerBase
         return Ok(ApiResponse.Success("Car deleted successfully"));
     }
 
-    [HttpPost("rent")]
-    [EndpointSummary("Rent a car")]
+
+    [HttpPost("check-available")]
+    [EndpointSummary("Check Car Availability")]
     [ProducesResponseType(typeof(ApiResponse<string>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> RentCar([FromBody] RentCarCommand command)
+    public async Task<IActionResult> CheckAvailability([FromBody] CheckCarAvailabilityCommand command)
     {
         var result = await mediator.Send(command);
         return result.Match(
-            success => Ok(ApiResponse<string>.Success(success, "Car rented successfully")),
-            failure => CustomResults.Problem(failure)
-        );
-    }
-
-    [HttpPost("return")]
-    [EndpointSummary("Return a rented car")]
-    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
-    public async Task<IActionResult> ReturnCar([FromBody] ReturnCarCommand command)
-    {
-        var result = await mediator.Send(command);
-        return Ok(ApiResponse.Success("Car returned successfully"));
+            success => Ok(ApiResponse<bool>.Success(success, "Car is available")),
+                    failure => CustomResults.Problem(failure));
     }
 
     [HttpGet("all")]
@@ -61,16 +52,16 @@ public class CarsController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> GetAllCars()
     {
         var result = await mediator.Send(new GetAllCarsQuery());
-        return Ok(ApiResponse<List<CarDto>>.Success(result));
+        return Ok(ApiResponse<IEnumerable<Car>?>.Success(result));
     }
 
     [HttpGet("available")]
     [EndpointSummary("Get all available cars")]
     [ProducesResponseType(typeof(ApiResponse<List<CarDto>>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetAvailableCars()
+    public async Task<IActionResult> GetAvailableCars(DateTime startDate,DateTime endDate)
     {
-        var result = await mediator.Send(new GetAvailableCarsQuery());
-        return Ok(ApiResponse<List<CarDto>>.Success(result));
+        var result = await mediator.Send(new GetAvailableCarsQuery(startDate,endDate));
+        return Ok(ApiResponse<List<Car>?>.Success(result));
     }
 
     [HttpGet("{id}")]
@@ -81,7 +72,7 @@ public class CarsController(IMediator mediator) : ControllerBase
     {
         var result = await mediator.Send(new GetCarByIdQuery(id));
         return result is not null
-            ? Ok(ApiResponse<CarDto>.Success(result))
+            ? Ok(ApiResponse<Car?>.Success(result))
             : NotFound(ApiResponse.Failure("Car not found"));
     }
 }

@@ -1,11 +1,4 @@
-﻿using Car_Rental_System.Application.Customers.Commands.AddCustomer;
-using Car_Rental_System.Application.Customers.Commands.DeleteCustomer;
-using Car_Rental_System.Application.Customers.Commands.UpdateCustomer;
-using Car_Rental_System.Application.Customers.Queries.GetAllCustomers;
-using Car_Rental_System.Application.Customers.Queries.GetCustomer;
-using Car_Rental_System.Application.Customers.Queries.ViewCustomerRentalHistory;
-
-namespace Car_Rental_System.API.Controllers;
+﻿namespace Car_Rental_System.API.Controllers;
 
     [Route("api/[controller]")]
     [ApiController]
@@ -47,7 +40,7 @@ public class CustomersController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> GetAllCustomers()
     {
         var result = await mediator.Send(new GetAllCustomersQuery());
-        return Ok(ApiResponse<List<CustomerDto>>.Success(result));
+        return Ok(ApiResponse<IReadOnlyList<Customer>>.Success(result));
     }
 
     [HttpGet("{id}")]
@@ -58,7 +51,7 @@ public class CustomersController(IMediator mediator) : ControllerBase
     {
         var result = await mediator.Send(new GetCustomerQuery(id));
         return result is not null
-            ? Ok(ApiResponse<CustomerDto>.Success(result))
+            ? Ok(ApiResponse<Customer>.Success(result))
             : NotFound(ApiResponse.Failure("Customer not found"));
     }
 
@@ -66,11 +59,11 @@ public class CustomersController(IMediator mediator) : ControllerBase
     [EndpointSummary("View customer rental history")]
     [ProducesResponseType(typeof(ApiResponse<CustomerRentalHistoryDto>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> ViewRentalHistory(int id)
+    public async Task<IActionResult> ViewCustomerRentalHistory(int id)
     {
         var result = await mediator.Send(new ViewCustomerRentalHistoryQuery(id));
         return result is not null
-            ? Ok(ApiResponse<CustomerRentalHistoryDto>.Success(result))
+            ? Ok(ApiResponse<ViewCustomerRentalHistoryResult>.Success(result))
             : NotFound(ApiResponse.Failure("Customer or rental history not found"));
     }
 }

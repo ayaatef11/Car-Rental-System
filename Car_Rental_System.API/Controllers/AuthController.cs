@@ -110,6 +110,16 @@ public class AuthController(IMediator mediator) : ControllerBase
             onFailure => CustomResults.Problem(onFailure));
     }
 
+    [HttpGet("current-user")]
+    public async Task<IActionResult> GetCurrentUser()
+    {
+        var userEmail = User.FindFirstValue(ClaimTypes.Email);
+
+        var result = await mediator.Send(new GetCurrentUserQuery(userEmail));
+        return result.Match(
+            success => Ok(ApiResponse<UserDto>.Success(success,"Gotten Current User successfully.")),
+            onFailure => CustomResults.Problem(onFailure));
+    }
 }
 
 
