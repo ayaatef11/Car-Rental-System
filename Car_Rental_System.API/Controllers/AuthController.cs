@@ -13,7 +13,7 @@ public class AuthController(IMediator mediator) : ControllerBase
         var result = await mediator.Send(command);
 
         return result.Match(
-        success => Ok(ApiResponse<string>.Success(success, "Registration successful! Please check your email to confirm your account.")),
+        success => Ok(ApiResponse<RegisterUserDto>.Success(success, "Registration successful! Please check your email to confirm your account.")),
         failure => CustomResults.Problem(failure));
     }
 
@@ -79,7 +79,7 @@ public class AuthController(IMediator mediator) : ControllerBase
         var result = await mediator.Send(command);
 
         return result.Match(
-            success => Ok(ApiResponse<string>.Success(success, "New confirmation email link generated.")),
+            success => Ok(ApiResponse<RegisterUserDto>.Success(success, "New confirmation email link generated.")),
             failure => CustomResults.Problem(failure));
     }
 
@@ -93,7 +93,7 @@ public class AuthController(IMediator mediator) : ControllerBase
         var result = await mediator.Send(command);
 
         return result.Match(
-            resetLink => Ok(ApiResponse<string>.Success(resetLink, "password reset link sent.")),
+            resetLink => Ok(ApiResponse<RegisterUserDto>.Success(resetLink, "password reset link sent.")),
             onFailure => CustomResults.Problem(onFailure));
     }
 

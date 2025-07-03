@@ -1,5 +1,5 @@
 ﻿namespace Car_Rental_System.Application.Auth.Commands.RegisterUser;
-public class RegisterUserCommand : IRequest<Result<string>>
+public class RegisterUserCommand : IRequest<Result<RegisterUserDto>>
 {
     public string UserName { get; set; } = default!;
     public string Email { get; set; } = default!;
