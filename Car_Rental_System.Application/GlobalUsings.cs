@@ -19,4 +19,5 @@ global using Car_Rental_System.Domain.Errors;
 global using Car_Rental_System.Application.Common.Interfaces;
 global using System.Net;
 global using Car_Rental_System.Application.Reservations.Commands.ComputeRange;
+global using  Car_Rental_System.Application.Reservations;
 
