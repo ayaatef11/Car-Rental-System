@@ -2,8 +2,8 @@
 public class Invoice
 {
     public int Id { get; set; }
-    public double RentalCharges { get; set; }
-    public double Taxes { get; set; }
     public double TotalAmountDue { get; set; }
+    public int ReservationId { get; set; }
+
     public Reservation? Reservation { get; set; }
 }

@@ -8,8 +8,6 @@ public class Reservation
     public Customer Customer { get; set; }
     public int CustomerId { get; set; }
     public int CarId { get; set; }
-    public int InvoiceId { get; set; }
-    public Invoice Invoice { get; set; }
-    public ReservationStatus Status { get; set; }
+    public Invoice? Invoice { get; set; }
 
 }
