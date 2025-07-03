@@ -1,4 +1,5 @@
-﻿namespace Car_Rental_System.Infrastructure.Repositories;
+﻿using Car_Rental_System.Infrastructure.Specifications;
+namespace Car_Rental_System.Infrastructure.Repositories;
 public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
     public AppDbContext _context { get; set; }
@@ -18,7 +19,19 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
 
         return await query.FirstOrDefaultAsync(e => EF.Property<int>(e, "Id") == id);
     }
+    public async Task<T?> GetByIdWithSpecAsync(ISpecifications<T> spec)
+    {
+        return await SpecificationsEvaluator<T>.GetQuery(_dbSet, spec).FirstOrDefaultAsync();
+    }
 
+    public async Task<IReadOnlyList<T>> GetAllWithSpecAsync(ISpecifications<T> spec)
+    {
+        return await SpecificationsEvaluator<T>.GetQuery(_dbSet, spec).ToListAsync();
+    }
+    public async Task<int> GetCountAsync(ISpecifications<T> spec)
+    {
+        return await SpecificationsEvaluator<T>.GetQuery(_dbSet, spec).CountAsync();
+    }
     public async Task<IReadOnlyList<T>> GetAllAsync() => await _dbSet.ToListAsync();
 
     public async Task<(IEnumerable<T> Items, int Count)> GetAllAsync(Expression<Func<T, bool>> filter = null,
@@ -87,18 +100,6 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         return _context.Set<T>().Find(id);
     }
 
-    public T update(T entity)
-    {
-
-        _context.Set<T>().Update(entity);
-        _context.SaveChanges();
-        return entity;
-    }
-
-    public List<T> GetAll()
-    {
-        return _context.Set<T>().ToList();
-
-    }
+ 
 }
 

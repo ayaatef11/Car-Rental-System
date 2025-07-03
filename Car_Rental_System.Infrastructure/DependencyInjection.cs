@@ -69,7 +69,6 @@ public static class DependencyInjection
         return services;
     }
 
-
     private static IServiceCollection AddEmailServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.Configure<EmailSettings>(configuration.GetSection(EmailSettings.Section));

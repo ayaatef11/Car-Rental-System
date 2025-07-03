@@ -26,8 +26,4 @@
     <ProjectReference Include="..\Car_Rental_System.Application\Car_Rental_System.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Specifications\CustomerSpecifications\" />
-  </ItemGroup>
-
 </Project>
