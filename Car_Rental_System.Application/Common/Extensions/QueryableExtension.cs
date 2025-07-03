@@ -1,8 +1,6 @@
-﻿using System.Data.Entity;
-using System.Linq.Dynamic.Core;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Car_Rental_System.Application.Common.Extensions;
-
 
 public static class QueryableExtensions
 {
