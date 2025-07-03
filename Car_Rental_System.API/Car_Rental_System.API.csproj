@@ -16,4 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Car_Rental_System.Infrastructure\Car_Rental_System.Infrastructure.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
 </Project>
