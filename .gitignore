@@ -1,0 +1,6 @@
+appsettings.json
+/bin
+/release
+/obj
+devnett.runasp.net-WebDeploy.publishSettings
+.vs
