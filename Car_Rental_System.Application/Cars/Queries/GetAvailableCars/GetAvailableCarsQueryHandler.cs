@@ -1,7 +1,7 @@
 ﻿namespace Car_Rental_System.Application.Cars.Queries.GetAvailableCars;
-internal class GetAvailableCarsQueryHandler(IUnitOfWork _unitOfWork)
+internal class GetAvailableCarsQueryHandler(IUnitOfWork _unitOfWork) : IRequestHandler<GetAvailableCarsQuery, List<Car>>
 {
-    public async Task<List<Car>> Handle(GetAvailableCarsQuery query)
+    public async Task<List<Car>> Handle(GetAvailableCarsQuery query, CancellationToken c)
     {
         var repo = _unitOfWork.Repository<Car>();
         var (cars, _) = await repo.GetAllAsync(
