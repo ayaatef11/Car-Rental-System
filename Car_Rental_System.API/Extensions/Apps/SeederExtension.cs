@@ -1,5 +1,6 @@
-﻿namespace Car_Rental_System.Extensions
-;
+﻿using Car_Rental_System.Infrastructure.Persistence.Seeders;
+
+namespace Car_Rental_System.API.Extensions.Apps;
 public static class SeederExtensions
 {
     public static async Task SeedDataAsync(this IApplicationBuilder app)

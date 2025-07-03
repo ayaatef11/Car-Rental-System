@@ -1,6 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 
-namespace Car_Rental_System.Extensions
+namespace Car_Rental_System.API.Extensions.Services
 ;
 public static class SwaggerExtensions
 {
@@ -10,7 +10,7 @@ public static class SwaggerExtensions
         {
             c.SwaggerDoc("v1", new OpenApiInfo
             {
-                Title = "Goodreads-Clone",
+                Title = "Car_Rental_System",
                 Version = "v1"
             });
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Car_Rental_System.Extensions
+namespace Car_Rental_System.API.Extensions.Apps
 ;
 public static class MigrationExtensions
 {

@@ -1,7 +1,8 @@
-﻿using Car_Rental_System.Middlewares;
+﻿using Car_Rental_System.API.Middlewares;
+using Car_Rental_System.Middlewares;
+using System.Reflection;
 
-namespace Car_Rental_System.Extensions
-{
+namespace Car_Rental_System.API.Extensions.Services;
     public static class DependencyInjection
     {
         public static IServiceCollection AddPresentation(this IServiceCollection services)
@@ -12,8 +13,11 @@ namespace Car_Rental_System.Extensions
             services.AddExceptionHandler<ValidationExceptionHandler>();
             services.AddExceptionHandler<GlobalExceptionHandler>();
             services.AddProblemDetails();
-
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()); // or your Application layer
+            });
             return services;
         }
     }
-}
+
