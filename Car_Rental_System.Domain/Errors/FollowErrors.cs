@@ -1,7 +1,6 @@
 ﻿using SharedKernel;
 
 namespace Car_Rental_System.Domain.Errors;
-
 public static class FollowErrors
 {
     public static Error UserNotFound(string userId) => Error.NotFound(

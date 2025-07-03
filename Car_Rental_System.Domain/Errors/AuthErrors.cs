@@ -1,6 +1,4 @@
-﻿
-
-using SharedKernel;
+﻿using SharedKernel;
 
 namespace Car_Rental_System.Domain.Errors;
 public static class AuthErrors

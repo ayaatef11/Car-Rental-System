@@ -1,11 +1,13 @@
 ﻿
 namespace Car_Rental_System.Domain.Constants;
-public  class Role
+public class Role
 {
-    public string Name{ get; set; } 
-    public string NormalizedName{ get; set; }
+    public int Id { get; set; } 
+    public string Name { get; set; } = null!;
+    public string NormalizedName { get; set; } = null!;
 }
-public enum Roles
+public static class Roles
 {
-   User,Admin
+    public const string Admin = "Admin";
+    public const string User = "User";
 }

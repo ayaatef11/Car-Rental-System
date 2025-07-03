@@ -1,11 +1,7 @@
-﻿using Car_Rental_System.Domain.Constants;
-
-namespace Car_Rental_System.Domain.Entities;
-
+﻿namespace Car_Rental_System.Domain.Entities;
 public class Reservation  
 {
     public int Id { get; set; }
-    public Tuple<DateTime, DateTime> DateRange { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public Car Car { get; set; }

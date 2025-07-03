@@ -2,8 +2,9 @@
 public class Customer
 {
     public int Id { get; set; }
-    public string PhoneNumber { get; set; }
-    public string FullName { get; set; }
-    public string Email { get; set; }
-   public List<Reservation> Reservations { get; set; } = new List<Reservation>();
+    public string FullName { get; set; } = null!;
+    public string Email { get; set; } = null!;
+    public string PhoneNumber { get; set; } = null!;
+    public string Location { get; set; } = null!;
+    public List<Reservation> Reservations { get; set; } = new List<Reservation>();
 }
