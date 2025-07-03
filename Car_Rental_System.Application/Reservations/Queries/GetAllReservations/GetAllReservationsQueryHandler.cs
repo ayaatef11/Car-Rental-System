@@ -1,9 +1,11 @@
 ﻿namespace Car_Rental_System.Application.Reservations.Queries.GetAllReservations;
-internal class GetAllReservationsQueryHandler(IUnitOfWork _unitOfWork) : IRequestHandler<GetAllReservationsQuery, IEnumerable<Reservation>>
+internal class GetAllReservationsQueryHandler(IUnitOfWork _unitOfWork,IMapper _mapper) : IRequestHandler<GetAllReservationsQuery, IReadOnlyList<ReservationDto>>
 {
-    public async Task<IEnumerable<Reservation>> Handle(GetAllReservationsQuery request, CancellationToken cancellationToken)
+    public async Task<IReadOnlyList<ReservationDto>> Handle(GetAllReservationsQuery request, CancellationToken cancellationToken)
     {
-        return await _unitOfWork.Repository<Reservation>().GetAllAsync();
+        var reservations= await _unitOfWork.Repository<Reservation>().GetAllAsync();
+        var result = _mapper.Map<IReadOnlyList<ReservationDto>>(reservations);
+        return result;
     }
 }
 
