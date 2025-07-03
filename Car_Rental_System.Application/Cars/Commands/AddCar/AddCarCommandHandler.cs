@@ -12,7 +12,7 @@ public class AddCarCommandHandler(IUnitOfWork _UOF) : IRequestHandler<AddCarComm
             Availability = request.Availability
         };
 
-        _UOF.Repository<Car>().AddAsync(car);
+        await _UOF.Repository<Car>().AddAsync(car);
         await _UOF.SaveChangesAsync();
         return car.Id;
     }
