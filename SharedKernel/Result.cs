@@ -1,5 +1,4 @@
-﻿
-namespace SharedKernel;
+﻿namespace SharedKernel;
 
 public class Result
 {
