@@ -1,5 +1,5 @@
 ﻿namespace Car_Rental_System.Application.Cars.Commands.UpdateCar;
-public class UpdateCarCommand
+public class UpdateCarCommand : IRequest<Result<Car>>
 {
     public int CarId { get; set; }
     public string Make { get; set; } = string.Empty;

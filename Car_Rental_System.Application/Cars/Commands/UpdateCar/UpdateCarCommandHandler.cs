@@ -1,26 +1,27 @@
-﻿namespace Car_Rental_System.Application.Cars.Commands.UpdateCar;
-
-
-public class UpdateCarCommandHandler(IUnitOfWork unitOfWork)
+﻿
+namespace Car_Rental_System.Application.Cars.Commands.UpdateCar;
+public class UpdateCarCommandHandler(IUnitOfWork _unitOfWork):IRequestHandler<UpdateCarCommand, Result<Car>>
 {
-    private readonly IUnitOfWork _unitOfWork = unitOfWork;
-
-    public async Task<Car?> Handle(UpdateCarCommand command)
+    public async Task<Result<Car>> Handle(UpdateCarCommand command, CancellationToken cancellationToken)
     {
-        var repo = _unitOfWork.Repository<Car>();
-        var car = await repo.GetByIdAsync(command.CarId);
+        var car = await _unitOfWork.Repository<Car>().GetByIdAsync(command.CarId);
 
-        if (car == null) return null;
+        if (car == null)
+            return Result<Car>.Fail(UserErrors.NotFound("Car is not found"));
+
 
         car.Make = command.Make;
         car.Model = command.Model;
         car.Year = command.Year;
         car.PricePerDay = command.PricePerDay;
         car.Availability = command.IsAvailable;
-
-        repo.Update(car);
+        car.UpdatedAt = DateTime.Now;
+        _unitOfWork.Repository<Car>().Update(car);
         await _unitOfWork.CompleteAsync();
 
-        return car;
+        return Result<Car>.Ok(car);
+
     }
+
+
 }
