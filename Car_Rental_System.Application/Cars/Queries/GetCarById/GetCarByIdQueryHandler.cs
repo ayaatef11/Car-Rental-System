@@ -1,10 +1,11 @@
-﻿namespace Car_Rental_System.Application.Cars.Queries.GetCarById;
-internal class GetCarByIdQueryHandler(IUnitOfWork _UOF)
+﻿
+namespace Car_Rental_System.Application.Cars.Queries.GetCarById;
+internal class GetCarByIdQueryHandler(IUnitOfWork _UOF):IRequestHandler<GetCarByIdQuery, Car?>
 {
-
-    public Car? Handle(GetCarByIdQuery query)
+    public Task<Car?> Handle(GetCarByIdQuery query, CancellationToken c)
     {
-        return _UOF.Repository<Car>().Get(query.CarId);
+        var car = _UOF.Repository<Car>().Get(query.CarId);
+        return Task.FromResult(car); 
     }
 }
 
