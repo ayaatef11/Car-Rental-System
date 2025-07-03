@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "q+sv3ooN+oNMuJH+s/VY7ja6Qb6fdUk6sFK1M+w/mqA=",
+  "Source": "Car_Rental_System.API",
+  "BasePath": "_content/Car_Rental_System.API",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
