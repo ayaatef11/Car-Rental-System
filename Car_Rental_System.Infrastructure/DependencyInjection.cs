@@ -1,29 +1,4 @@
-﻿using Car_Rental_System.Application.Common.Interfaces;
-using Car_Rental_System.Domain.Entities;
-using Car_Rental_System.Infrastructure.Identity;
-using Car_Rental_System.Infrastructure.Jobs;
-using Car_Rental_System.Infrastructure.Persistence;
-using Car_Rental_System.Infrastructure.Persistence.Seeders;
-using Car_Rental_System.Infrastructure.Repositories;
-using Car_Rental_System.Infrastructure.Services.EmailService;
-using Car_Rental_System.Infrastructure.Services.Storage;
-using Car_Rental_System.Infrastructure.Services.TokenProvider;
-using Hangfire;
-using Hangfire.Storage.SQLite;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Car_Rental_System.Infrastructure;
+﻿namespace Car_Rental_System.Infrastructure;
 public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
@@ -51,7 +26,6 @@ public static class DependencyInjection
         services.AddScoped<AppSeeder>();
 
         services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
-        //services.AddScoped<IUserFollowRepository, UserFollowRepository>();
         services.AddScoped<IUnitOfWork, UnitOfwork>();
 
         return services;
@@ -60,7 +34,7 @@ public static class DependencyInjection
     private static IServiceCollection AddIdentity(this IServiceCollection services)
     {
         services
-            .AddIdentity<User, IdentityRole>(options =>
+            .AddIdentity<AppUser, IdentityRole>(options =>
             {
                 options.Password.RequireDigit = false;
                 options.Password.RequiredLength = 6;
@@ -95,11 +69,6 @@ public static class DependencyInjection
         return services;
     }
 
-    private static IServiceCollection AddAuthorization(this IServiceCollection services)
-    {
-        //services.AddScoped<IAuthorAuthorizationService, AuthorAuthorizationService>();
-        return services;
-    }
 
     private static IServiceCollection AddEmailServices(this IServiceCollection services, IConfiguration configuration)
     {
@@ -113,8 +82,14 @@ public static class DependencyInjection
             emailSettings.Host = "smtp.gmail.com";
             emailSettings.Port = 587;
             emailSettings.FromEmail = "ayabadrin667@gmail.com";
-            services.AddFluentEmail(emailSettings.FromEmail)
-            .AddSmtpSender(emailSettings.Host, emailSettings.Port);
+            services.AddFluentEmail(emailSettings.FromEmail, emailSettings.FromName)
+     .AddSmtpSender(() => new SmtpClient
+     {
+         Host = emailSettings.Host,
+         Port = emailSettings.Port,
+         Credentials = new NetworkCredential(emailSettings.Username, emailSettings.Password),
+         EnableSsl = true
+     });
         }
         else
         {
@@ -125,7 +100,6 @@ public static class DependencyInjection
                       Credentials = new NetworkCredential("ayabadrin667@gmail.com", emailSettings.Password),
                       EnableSsl = true
                   });
-            //.AddSmtpSender(//(emailSettings.Host, emailSettings.Port, emailSettings.Username, emailSettings.Password);
         }
 
         services.AddScoped<IEmailService, EmailService>();

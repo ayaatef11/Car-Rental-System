@@ -24,7 +24,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Car_Rental_System.Application\Car_Rental_System.Application.csproj" />
-    <ProjectReference Include="..\Car_Rental_System.Domain\Car_Rental_System.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Specifications\CustomerSpecifications\" />
   </ItemGroup>
 
 </Project>

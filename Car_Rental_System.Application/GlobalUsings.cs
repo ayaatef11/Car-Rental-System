@@ -1,7 +1,22 @@
-﻿global using Car_Rental_System.Infrastructure.Repositories;
-global using MediatR;
+﻿global using Car_Rental_System.Application.Common.Responses;
+global using Microsoft.AspNetCore.Http;
+global using SharedKernel;
+//global using System.ComponentModel.DataAnnotations;
 global using FluentValidation;
+global using MediatR;
 global using Car_Rental_System.Application.Common.Behaviors;
 global using Car_Rental_System.Domain.Entities;
 global using Car_Rental_System.Application.DTOS;
+global using System.Linq.Dynamic.Core;
+global using System.Linq.Expressions;
+global using Microsoft.Extensions.Logging;
+global using System.IdentityModel.Tokens.Jwt;
+global using Car_Rental_System.Domain.Constants;
+global using AutoMapper;
+global using Car_Rental_System.Application.Auth.Commands.RegisterUser;
+global using Microsoft.AspNetCore.Identity;
+global using Car_Rental_System.Domain.Errors;
+global using Car_Rental_System.Application.Common.Interfaces;
+global using System.Net;
+global using Car_Rental_System.Application.Reservations.Commands.ComputeRange;
 

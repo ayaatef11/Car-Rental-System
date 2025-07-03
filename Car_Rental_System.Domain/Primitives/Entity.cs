@@ -1,5 +1,4 @@
-﻿
-namespace Car_Rental_System.Domain.Primitives;
+﻿namespace Car_Rental_System.Domain.Primitives;
     public class Entity
     {
     }

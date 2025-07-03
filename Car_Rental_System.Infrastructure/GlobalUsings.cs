@@ -1,1 +1,46 @@
-﻿
+﻿global using Car_Rental_System.Application.Common.Interfaces;
+global using Microsoft.AspNetCore.Http;
+global using System.Security.Claims;
+global using Car_Rental_System.Infrastructure.Persistence;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Caching.Distributed;
+global using Microsoft.Extensions.Localization;
+global using Newtonsoft.Json;
+global using System.Text;
+global using AutoMapper;
+global using System.Reflection;
+global using Car_Rental_System.Domain.Constants;
+global using Car_Rental_System.Domain.Entities;
+global using Car_Rental_System.Infrastructure.Services.Signalr;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Car_Rental_System.Application.Common.Extensions;
+global using System.Linq.Expressions;
+global using System.Collections;
+global using FluentEmail.Core;
+global using Car_Rental_System.Infrastructure.Parameters;
+global using Microsoft.AspNetCore.SignalR;
+global using Azure.Storage;
+global using Azure.Storage.Blobs;
+global using Azure.Storage.Blobs.Models;
+global using Azure.Storage.Sas;
+global using Microsoft.Extensions.Options;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.IdentityModel.Tokens;
+global using System.IdentityModel.Tokens.Jwt;
+global using System.Security.Cryptography;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+
+global using Car_Rental_System.Infrastructure.Jobs;
+global using Hangfire;
+global using Car_Rental_System.Infrastructure.Identity;
+global using Car_Rental_System.Infrastructure.Persistence.Seeders;
+global using Car_Rental_System.Infrastructure.Repositories;
+global using Car_Rental_System.Infrastructure.Services.EmailService;
+global using Car_Rental_System.Infrastructure.Services.Storage;
+global using Car_Rental_System.Infrastructure.Services.TokenProvider;
+global using Hangfire.Storage.SQLite;
+global using Microsoft.Extensions.Configuration;
+global using System.Net;
+global using System.Net.Mail;
+
