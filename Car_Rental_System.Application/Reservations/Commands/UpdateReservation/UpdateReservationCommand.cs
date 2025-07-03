@@ -1,11 +1,5 @@
 ﻿namespace Car_Rental_System.Application.Reservations.Commands.UpdateReservation;
-public class UpdateReservationCommand : IRequest<Reservation?>
+public record UpdateReservationCommand(int Id,int CarId,int CustomerId, DateTime StartDate, DateTime EndDate) : IRequest<Result<Reservation?>>
 {
-    public Reservation UpdatedReservation { get; }
-
-    public UpdateReservationCommand(Reservation updatedReservation)
-    {
-        UpdatedReservation = updatedReservation;
-    }
 }
 

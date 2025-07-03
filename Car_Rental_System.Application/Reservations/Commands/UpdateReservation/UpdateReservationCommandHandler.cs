@@ -1,25 +1,31 @@
-﻿namespace Car_Rental_System.Application.Reservations.Commands.UpdateReservation;
-internal class UpdateReservationCommandHandler(IUnitOfWork _unitOfWork) : IRequestHandler<UpdateReservationCommand, Reservation?>
+﻿using Car_Rental_System.Application.Cars.Commands.CheckCarAvailability;
+
+namespace Car_Rental_System.Application.Reservations.Commands.UpdateReservation;
+internal class UpdateReservationCommandHandler(IUnitOfWork _unitOfWork,IMediator _mediator) : IRequestHandler<UpdateReservationCommand, Result<Reservation?>>
 {
 
-    public async Task<Reservation?> Handle(UpdateReservationCommand request, CancellationToken cancellationToken)
+    public async Task<Result<Reservation?>> Handle(UpdateReservationCommand request, CancellationToken cancellationToken)
     {
-        var reservation = await _unitOfWork.Repository<Reservation>().GetByIdAsync(request.UpdatedReservation.Id);
+        var reservation = await _unitOfWork.Repository<Reservation>().GetByIdAsync(request.Id);
 
         if (reservation == null)
-            return null;
+            return Result<Reservation?>.Fail(UserErrors.NotFound("Required Reservation is not found"));
 
-        // Optional: selectively update fields
-        //reservation.StartDate = request.UpdatedReservation.StartDate;
-        //reservation.EndDate = request.UpdatedReservation.EndDate;
-        reservation.Status = request.UpdatedReservation.Status;
-        reservation.CarId = request.UpdatedReservation.CarId;
-        reservation.CustomerId = request.UpdatedReservation.CustomerId;
+        var checkCommand = new CheckCarAvailabilityCommand(request.CarId, request.StartDate, request.EndDate);
+        var availabilityResult = await _mediator.Send(checkCommand);
+
+        if (!availabilityResult.IsSuccess)
+            return Result<Reservation?>.Fail(UserErrors.NotFound("Car is not available"));
+
+        reservation.StartDate = request.StartDate;
+        reservation.EndDate = request.EndDate;
+        reservation.CarId = request.CarId;
+        reservation.CustomerId = request.CustomerId;
 
         _unitOfWork.Repository<Reservation>().Update(reservation);
         await _unitOfWork.SaveChangesAsync();
 
-        return reservation;
+        return Result<Reservation?>.Ok(reservation);
     }
 }
 
