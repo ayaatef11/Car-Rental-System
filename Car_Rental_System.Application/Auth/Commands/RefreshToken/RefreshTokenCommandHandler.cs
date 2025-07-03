@@ -1,10 +1,4 @@
-﻿using Car_Rental_System.Application.Common.Interfaces;
-using Car_Rental_System.Application.DTOS;
-using MediatR;
-using SharedKernel;
-using System.IdentityModel.Tokens.Jwt;
-
-namespace Car_Rental_System.Application.Auth.Commands.RefreshToken;
+﻿namespace Car_Rental_System.Application.Auth.Commands.RefreshToken;
 internal class RefreshTokenCommandHandler(ITokenProvider _tokenProvider, IRefreshTokenRepository _refreshTokenRepository) : IRequestHandler<RefreshTokenCommand, Result<AuthResultDto>>
 {
     public async Task<Result<AuthResultDto>> Handle(RefreshTokenCommand request, CancellationToken cancellationToken)

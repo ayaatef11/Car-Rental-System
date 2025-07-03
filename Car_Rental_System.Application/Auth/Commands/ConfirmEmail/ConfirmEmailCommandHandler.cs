@@ -1,11 +1,5 @@
-﻿using Car_Rental_System.Domain.Entities;
-using Car_Rental_System.Domain.Errors;
-using MediatR;
-using Microsoft.AspNetCore.Identity;
-using SharedKernel;
-
-namespace Car_Rental_System.Application.Auth.Commands.ConfirmEmail;
-internal class ConfirmEmailCommandHandler(UserManager<User> _userManager) : IRequestHandler<ConfirmEmailCommand, Result<bool>>
+﻿namespace Car_Rental_System.Application.Auth.Commands.ConfirmEmail;
+internal class ConfirmEmailCommandHandler(UserManager<AppUser> _userManager) : IRequestHandler<ConfirmEmailCommand, Result<bool>>
 {
     public async Task<Result<bool>> Handle(ConfirmEmailCommand request, CancellationToken cancellationToken)
     {

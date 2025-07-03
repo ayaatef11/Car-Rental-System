@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Car_Rental_System.Application.Auth.Commands.LoginUser;
+﻿namespace Car_Rental_System.Application.Auth.Commands.LoginUser;
 public class LoginUserCommandValidator : AbstractValidator<LoginUserCommand>
 {
     public LoginUserCommandValidator()

@@ -1,13 +1,5 @@
-﻿using Car_Rental_System.Application.Common.Interfaces;
-using Car_Rental_System.Domain.Entities;
-using Car_Rental_System.Domain.Errors;
-using MediatR;
-using Microsoft.AspNetCore.Identity;
-using SharedKernel;
-using System.Net;
-
-namespace Car_Rental_System.Application.Auth.Commands.ResetEmailConfirmation;
-public class ResetEmailConfirmationCommandHandler(UserManager<User> _userManager, IEmailService _emailService) : IRequestHandler<ResetEmailConfirmationCommand, Result<string>>
+﻿namespace Car_Rental_System.Application.Auth.Commands.ResetEmailConfirmation;
+public class ResetEmailConfirmationCommandHandler(UserManager<AppUser> _userManager, IEmailService _emailService) : IRequestHandler<ResetEmailConfirmationCommand, Result<string>>
 {
 
     public async Task<Result<string>> Handle(ResetEmailConfirmationCommand request, CancellationToken cancellationToken)

@@ -1,5 +1,4 @@
-﻿using FluentValidation;
-namespace Car_Rental_System.Application.Auth.Commands.RegisterUser;
+﻿namespace Car_Rental_System.Application.Auth.Commands.RegisterUser;
 
 public class RegisterUserCommandValidator : AbstractValidator<RegisterUserCommand>
 {

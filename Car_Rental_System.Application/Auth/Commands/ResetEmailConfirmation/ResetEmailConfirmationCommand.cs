@@ -1,6 +1,3 @@
-﻿using MediatR;
-using SharedKernel;
-
-namespace Car_Rental_System.Application.Auth.Commands.ResetEmailConfirmation;
+﻿namespace Car_Rental_System.Application.Auth.Commands.ResetEmailConfirmation;
 public record ResetEmailConfirmationCommand(string email) : IRequest<Result<string>>;
 

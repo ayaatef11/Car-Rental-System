@@ -1,5 +1,4 @@
-﻿using FluentValidation;
-namespace Car_Rental_System.Application.Auth.Commands.ResetPassword;
+﻿namespace Car_Rental_System.Application.Auth.Commands.ResetPassword;
 public class ResetPasswordCommandValidator : AbstractValidator<ResetPasswordCommand>
 {
     public ResetPasswordCommandValidator()

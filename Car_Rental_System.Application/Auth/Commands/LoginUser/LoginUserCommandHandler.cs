@@ -1,15 +1,5 @@
-﻿using Car_Rental_System.Application.Common.Interfaces;
-using Car_Rental_System.Application.DTOS;
-using Car_Rental_System.Domain.Entities;
-using Car_Rental_System.Domain.Errors;
-using MediatR;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Logging;
-using SharedKernel;
-using System.IdentityModel.Tokens.Jwt;
-
-namespace Car_Rental_System.Application.Auth.Commands.LoginUser;
-internal class LoginUserCommandHandler(UserManager<User> _userManager, ILogger<LoginUserCommandHandler> _logger, ITokenProvider _tokenProvider) : IRequestHandler<LoginUserCommand, Result<AuthResultDto>>
+﻿namespace Car_Rental_System.Application.Auth.Commands.LoginUser;
+internal class LoginUserCommandHandler(UserManager<AppUser> _userManager, ILogger<LoginUserCommandHandler> _logger, ITokenProvider _tokenProvider) : IRequestHandler<LoginUserCommand, Result<AuthResultDto>>
 {
     public async Task<Result<AuthResultDto>> Handle(LoginUserCommand request, CancellationToken cancellationToken)
     {

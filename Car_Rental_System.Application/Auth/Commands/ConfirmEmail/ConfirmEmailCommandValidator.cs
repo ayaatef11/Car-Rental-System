@@ -1,5 +1,4 @@
-﻿using FluentValidation;
-namespace Car_Rental_System.Application.Auth.Commands.ConfirmEmail;
+﻿namespace Car_Rental_System.Application.Auth.Commands.ConfirmEmail;
 public class ConfirmEmailCommandValidator : AbstractValidator<ConfirmEmailCommand>
 {
     public ConfirmEmailCommandValidator()

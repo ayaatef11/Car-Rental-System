@@ -1,6 +1,4 @@
-﻿using MediatR;
-using SharedKernel;
-namespace Car_Rental_System.Application.Auth.Commands.RegisterUser;
+﻿namespace Car_Rental_System.Application.Auth.Commands.RegisterUser;
 public class RegisterUserCommand : IRequest<Result<string>>
 {
     public string UserName { get; set; } = default!;

@@ -1,13 +1,5 @@
-﻿using Car_Rental_System.Application.Common.Interfaces;
-using Car_Rental_System.Domain.Entities;
-using Car_Rental_System.Domain.Errors;
-using MediatR;
-using Microsoft.AspNetCore.Identity;
-using SharedKernel;
-using System.Net;
-
-namespace Car_Rental_System.Application.Auth.Commands.ForgetPassword;
-public class ForgotPasswordCommandHandler(UserManager<User> _userManager, IEmailService _emailService) : IRequestHandler<ForgotPasswordCommand, Result<string>>
+﻿namespace Car_Rental_System.Application.Auth.Commands.ForgetPassword;
+public class ForgotPasswordCommandHandler(UserManager<AppUser> _userManager, IEmailService _emailService) : IRequestHandler<ForgotPasswordCommand, Result<string>>
 {
     public async Task<Result<string>> Handle(ForgotPasswordCommand request, CancellationToken cancellationToken)
     {
