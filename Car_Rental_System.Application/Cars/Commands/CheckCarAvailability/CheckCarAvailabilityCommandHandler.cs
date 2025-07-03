@@ -1,12 +1,15 @@
 ﻿
+using Car_Rental_System.Application.Specifications.CarSpecifications;
+
 namespace Car_Rental_System.Application.Cars.Commands.CheckCarAvailability;
 
 public class CheckCarAvailabilityCommandHandler(IUnitOfWork _unitOfWork):IRequestHandler<CheckCarAvailabilityCommand,Result<bool>>
 {
     public async Task<Result<bool>> Handle(CheckCarAvailabilityCommand command, CancellationToken cancellationToken)
     {
-        var car = await _unitOfWork.Repository<Car>().GetByIdAsync(command.CarId);
-        if (car == null) return Result<bool>.Fail(UserErrors.NotFound("Car not found"));
+        var spec = new Carspecification(command.CarId);
+        var car = await _unitOfWork.Repository<Car>().GetByIdWithSpecAsync(spec);
+        if (car == null) return Result<bool>.Fail(CarErrors.NotFound("Car not found"));
 
 
         foreach (var res in car.Reservations)
@@ -15,7 +18,7 @@ public class CheckCarAvailabilityCommandHandler(IUnitOfWork _unitOfWork):IReques
             {
                 car.Availability = false;
                 await _unitOfWork.CompleteAsync();
-                return Result<bool>.Fail(UserErrors.NotFound("overlabs"));
+                return Result<bool>.Fail(CarErrors.NotFound("overlabs"));
             }
         }
 
@@ -27,7 +30,7 @@ public class CheckCarAvailabilityCommandHandler(IUnitOfWork _unitOfWork):IReques
 
     private bool Overlap(DateTime resStart, DateTime resEnd, DateTime newStart, DateTime newEnd)
     {
-        return resStart <= newEnd && newStart <= resEnd;
+        return (resStart <= newEnd && newStart <= resEnd)||(resStart == newEnd && newStart == resEnd);
     }
 }
 

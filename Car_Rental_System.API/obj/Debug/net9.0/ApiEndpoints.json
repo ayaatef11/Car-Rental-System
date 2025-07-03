@@ -812,23 +812,6 @@
   },
   {
     "ContainingType": "Car_Rental_System.API.Controllers.ReservationsController",
-    "Method": "GetRentalCharge",
-    "RelativePath": "api/Reservations/charge",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "invoiceId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [],
-    "Summary": "Get rental charges"
-  },
-  {
-    "ContainingType": "Car_Rental_System.API.Controllers.ReservationsController",
     "Method": "GetReservationCount",
     "RelativePath": "api/Reservations/count",
     "HttpMethod": "GET",
@@ -877,40 +860,6 @@
     ],
     "ReturnTypes": [],
     "Summary": "Compute reservation range"
-  },
-  {
-    "ContainingType": "Car_Rental_System.API.Controllers.ReservationsController",
-    "Method": "SetReservationStatus",
-    "RelativePath": "api/Reservations/set-status",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "command",
-        "Type": "Car_Rental_System.Application.Reservations.Commands.SetReservationStatus.SetReservationStatusCommand",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [],
-    "Summary": "Set reservation status"
-  },
-  {
-    "ContainingType": "Car_Rental_System.API.Controllers.ReservationsController",
-    "Method": "GetReservationStatus",
-    "RelativePath": "api/Reservations/status",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "reservationId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [],
-    "Summary": "Get reservation status"
   },
   {
     "ContainingType": "Car_Rental_System.API.Controllers.ReservationsController",

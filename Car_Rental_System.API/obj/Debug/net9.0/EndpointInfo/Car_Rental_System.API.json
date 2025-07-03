@@ -1441,38 +1441,6 @@
         }
       }
     },
-    "/api/Reservations/set-status": {
-      "put": {
-        "tags": [
-          "Reservations"
-        ],
-        "summary": "Set reservation status",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetReservationStatusCommand"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetReservationStatusCommand"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetReservationStatusCommand"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/Reservations/all": {
       "get": {
         "tags": [
@@ -1519,52 +1487,6 @@
         "parameters": [
           {
             "name": "customerId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Reservations/status": {
-      "get": {
-        "tags": [
-          "Reservations"
-        ],
-        "summary": "Get reservation status",
-        "parameters": [
-          {
-            "name": "reservationId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Reservations/charge": {
-      "get": {
-        "tags": [
-          "Reservations"
-        ],
-        "summary": "Get rental charges",
-        "parameters": [
-          {
-            "name": "invoiceId",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -1659,13 +1581,13 @@
             "type": "integer",
             "format": "int32"
           },
-          "reservationDate": {
+          "startDate": {
             "type": "string",
             "format": "date-time"
           },
-          "amount": {
-            "type": "number",
-            "format": "double"
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -1750,51 +1672,6 @@
         },
         "additionalProperties": false
       },
-      "Car": {
-        "type": "object",
-        "properties": {
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "make": {
-            "type": "string",
-            "nullable": true
-          },
-          "model": {
-            "type": "string",
-            "nullable": true
-          },
-          "year": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "availability": {
-            "type": "boolean"
-          },
-          "reservations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Reservation"
-            },
-            "nullable": true
-          },
-          "pricePerDay": {
-            "type": "number",
-            "format": "double"
-          }
-        },
-        "additionalProperties": false
-      },
       "CarDto": {
         "type": "object",
         "additionalProperties": false
@@ -1863,39 +1740,6 @@
           "endDate": {
             "type": "string",
             "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Customer": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "fullName": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "phoneNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "location": {
-            "type": "string",
-            "nullable": true
-          },
-          "reservations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Reservation"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2039,31 +1883,6 @@
         },
         "additionalProperties": false
       },
-      "Invoice": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rentalCharges": {
-            "type": "number",
-            "format": "double"
-          },
-          "taxes": {
-            "type": "number",
-            "format": "double"
-          },
-          "totalAmountDue": {
-            "type": "number",
-            "format": "double"
-          },
-          "reservation": {
-            "$ref": "#/components/schemas/Reservation"
-          }
-        },
-        "additionalProperties": false
-      },
       "LoginUserCommand": {
         "type": "object",
         "properties": {
@@ -2141,77 +1960,12 @@
         },
         "additionalProperties": false
       },
-      "Reservation": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "startDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "endDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "car": {
-            "$ref": "#/components/schemas/Car"
-          },
-          "customer": {
-            "$ref": "#/components/schemas/Customer"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "carId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "invoiceId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "invoice": {
-            "$ref": "#/components/schemas/Invoice"
-          },
-          "status": {
-            "$ref": "#/components/schemas/ReservationStatus"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ReservationStatus": {
-        "enum": [
-          0,
-          1,
-          2,
-          3
-        ],
-        "type": "integer",
-        "format": "int32"
-      },
       "ResetEmailConfirmationCommand": {
         "type": "object",
         "properties": {
           "email": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "SetReservationStatusCommand": {
-        "type": "object",
-        "properties": {
-          "reservationId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "status": {
-            "$ref": "#/components/schemas/ReservationStatus"
           }
         },
         "additionalProperties": false
@@ -2298,8 +2052,25 @@
       "UpdateReservationCommand": {
         "type": "object",
         "properties": {
-          "updatedReservation": {
-            "$ref": "#/components/schemas/Reservation"
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "carId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false

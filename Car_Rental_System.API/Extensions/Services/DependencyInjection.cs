@@ -1,5 +1,4 @@
 ﻿using Car_Rental_System.API.Middlewares;
-using Car_Rental_System.Middlewares;
 using System.Reflection;
 
 namespace Car_Rental_System.API.Extensions.Services;

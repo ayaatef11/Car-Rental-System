@@ -18,4 +18,8 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Car_Rental_System.API\Car_Rental_System.API.csproj" />
+  </ItemGroup>
+
 </Project>

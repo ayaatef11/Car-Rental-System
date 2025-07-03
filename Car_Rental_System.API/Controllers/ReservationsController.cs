@@ -10,7 +10,9 @@ public class ReservationsController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> AddReservation([FromBody] AddReservationCommand command)
     {
         var result = await mediator.Send(command);
-        return Ok(ApiResponse<bool>.Success(result, "Reservation added successfully"));
+        return result.Match(
+                success => Ok(ApiResponse<bool>.Success(success, "Reservation Added Successfully")),
+                failure => CustomResults.Problem(failure));
     }
 
     [HttpDelete("delete")]
@@ -26,23 +28,18 @@ public class ReservationsController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> UpdateReservation([FromBody] UpdateReservationCommand command)
     {
         var result = await mediator.Send(command);
-        return Ok(ApiResponse<Reservation>.Success(result, "Reservation updated"));
+        return result.Match(
+                success => Ok(ApiResponse<Reservation?>.Success(success, "Reservation Updated Successfully")),
+                failure => CustomResults.Problem(failure));
     }
 
-    [HttpPut("set-status")]
-    [EndpointSummary("Set reservation status")]
-    public async Task<IActionResult> SetReservationStatus([FromBody] SetReservationStatusCommand command)
-    {
-        var result = await mediator.Send(command);
-        return Ok(ApiResponse.Success("Status updated"));
-    }
 
     [HttpGet("all")]
     [EndpointSummary("Get all reservations")]
     public async Task<IActionResult> GetAllReservations()
     {
         var result = await mediator.Send(new GetAllReservationsQuery());
-        return Ok(ApiResponse<List<Reservation>>.Success(result));
+        return Ok(ApiResponse<IReadOnlyList<ReservationDto>>.Success(result));
     }
 
     [HttpGet("{id}")]
@@ -50,7 +47,7 @@ public class ReservationsController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> GetReservation(int id)
     {
         var result = await mediator.Send(new GetReservationQuery(id));
-        return Ok(ApiResponse<Reservation>.Success(result));
+        return Ok(ApiResponse<ReservationDto>.Success(result));
     }
 
     [HttpGet("count")]
@@ -60,23 +57,7 @@ public class ReservationsController(IMediator mediator) : ControllerBase
         var result = await mediator.Send(new GetReservationCountQuery(customerId));
         return Ok(ApiResponse<int>.Success(result));
     }
-
-    [HttpGet("status")]
-    [EndpointSummary("Get reservation status")]
-    public async Task<IActionResult> GetReservationStatus(int reservationId)
-    {
-        var result = await mediator.Send(new GetReservationStatusQuery(reservationId));
-        return Ok(ApiResponse<string>.Success(result.ToString()));
-    }
-
-    [HttpGet("charge")]
-    [EndpointSummary("Get rental charges")]
-    public async Task<IActionResult> GetRentalCharge(int invoiceId)
-    {
-        var result = await mediator.Send(new GetRentalChargeQuery(invoiceId));
-        return Ok(ApiResponse<double?>.Success(result));
-    }
-
+   
     [HttpGet("range")]
     [EndpointSummary("Compute reservation range")]
     public async Task<IActionResult> ComputeReservationRange(int reservationId)

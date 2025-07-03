@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Car_Rental_System.WebScraping")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a61fe68a615edd466c17e8660f7983192902d642")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e998a5447a823fb6426f65028207f7feb3e833be")]
 [assembly: System.Reflection.AssemblyProductAttribute("Car_Rental_System.WebScraping")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Car_Rental_System.WebScraping")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

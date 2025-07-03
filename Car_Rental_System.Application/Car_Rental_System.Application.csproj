@@ -21,4 +21,10 @@
     <ProjectReference Include="..\Car_Rental_System.Domain\Car_Rental_System.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Invoices\Commands\GenerateInvoicePDF\" />
+    <Folder Include="Invoices\Commands\GenerateInvoiceDocx\" />
+    <Folder Include="Invoices\Commands\GenerateInvoiceExcel\" />
+  </ItemGroup>
+
 </Project>
