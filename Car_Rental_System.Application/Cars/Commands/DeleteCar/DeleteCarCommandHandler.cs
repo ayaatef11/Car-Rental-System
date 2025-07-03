@@ -1,9 +1,7 @@
-﻿using Car_Rental_System.Domain.Entities;
-using Car_Rental_System.Infrastructure.Repositories;
-namespace Car_Rental_System.Application.Cars.Commands.DeleteCar;
-public class DeleteCarCommandHandler(IUnitOfWork _unitOfWork)
+﻿namespace Car_Rental_System.Application.Cars.Commands.DeleteCar;
+public class DeleteCarCommandHandler(IUnitOfWork _unitOfWork):IRequestHandler<DeleteCarCommand,int>
 {
-    public async Task Handle(DeleteCarCommand command)
+    public async Task<int> Handle(DeleteCarCommand command,CancellationToken c)
     {
         var carRepo = _unitOfWork.Repository<Car>();
         var car = await carRepo.GetByIdAsync(command.CarId);
@@ -13,6 +11,6 @@ public class DeleteCarCommandHandler(IUnitOfWork _unitOfWork)
         }
 
         carRepo.Delete(car);
-        await _unitOfWork.CompleteAsync();
+       return  await _unitOfWork.CompleteAsync();
     }
 }
