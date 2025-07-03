@@ -1,6 +1,4 @@
-﻿using Car_Rental_System.Application.Common.Responses;
-using FluentValidation;
-
+﻿
 namespace Car_Rental_System.Application.Common.Validation;
 public class QueryParametersValidator : AbstractValidator<QueryParameters>
 {

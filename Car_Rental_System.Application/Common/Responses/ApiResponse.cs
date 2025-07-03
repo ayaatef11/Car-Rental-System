@@ -1,5 +1,4 @@
-﻿
-namespace Car_Rental_System.Application.Common.Responses;
+﻿namespace Car_Rental_System.Application.Common.Responses;
 public class ApiResponse
 {
     public bool IsSuccess { get; set; }

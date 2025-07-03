@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-namespace Car_Rental_System.Application.Common.Responses;
+﻿namespace Car_Rental_System.Application.Common.Responses;
 public class PagedResult<T>
 {
     public List<T> Items { get; set; } = new();
