@@ -1,21 +1,12 @@
-﻿using Car_Rental_System.Domain.Entities;
-using Car_Rental_System.Infrastructure.Repositories;
-namespace Car_Rental_System.Application.Customers.Commands.AddCustomer;
-internal class AddCustomerCommandHandler(IUnitOfWork _unitOfWork)
+﻿namespace Car_Rental_System.Application.Customers.Commands.AddCustomer;
+internal class AddCustomerCommandHandler(IUnitOfWork _unitOfWork):IRequestHandler<AddCustomerCommand,int>
 {
-
-    public async Task Handle(AddCustomerCommand command)
+    public async Task<int> Handle(AddCustomerCommand command,CancellationToken c)
     {
-        Customer customer = command.CustomerType switch
-        {
-            1 => new Person { FullName = command.Name },
-            2 => new Company { CompanyName = command.Name },
-            _ => throw new Exception("Invalid customer type.")
-        };
-
+        Customer customer = new Customer { FullName = command.FullName,Email=command.Email,Location=command.Location,PhoneNumber=command.PhoneNumber };
         var customerRepo = _unitOfWork.Repository<Customer>();
-        customerRepo.AddAsync(customer);
-        await _unitOfWork.CompleteAsync();
+       await customerRepo.AddAsync(customer);
+       return await _unitOfWork.CompleteAsync();
     }
 }
 
