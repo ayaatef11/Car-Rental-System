@@ -1,5 +1,4 @@
-﻿
-namespace Car_Rental_System.Application.DTOS;
+﻿namespace Car_Rental_System.Application.DTOS;
 public class RentalRecordDto
 {
     public int RentalId { get; set; }

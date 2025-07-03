@@ -1,8 +1,7 @@
-﻿
-namespace Car_Rental_System.Application.DTOS;
+﻿namespace Car_Rental_System.Application.DTOS;
 public class CarRentalDto
 {
-    public int CarId { get; set; }
-    public string Model { get; set; } = string.Empty;
-    public int RentalCount { get; set; }
+    public int CustomerId { get; set; }
+    public DateTime StartDate { get; set; }
+    public DateTime EndDate { get; set; }
 }

@@ -1,7 +1,7 @@
 ﻿namespace Car_Rental_System.Application.DTOS;
 public class UserProfileDto
 {
-    public string Id { get; set; }
+    public string Id { get; set; } = null!;
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
     public DateOnly? DateOfBirth { get; set; }
