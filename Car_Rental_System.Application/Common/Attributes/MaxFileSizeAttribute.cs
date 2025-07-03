@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using SharedKernel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+
 namespace Car_Rental_System.Application.Common.Attributes;
-
-
 public class MaxFileSizeAttribute(long maxFileSizeInBytes) : ValidationAttribute
 {
     protected override ValidationResult IsValid(object value, ValidationContext validationContext)

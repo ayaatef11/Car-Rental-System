@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using SharedKernel;
+﻿
 using System.ComponentModel.DataAnnotations;
 
 namespace Car_Rental_System.Application.Common.Attributes;
