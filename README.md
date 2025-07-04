@@ -39,13 +39,17 @@
 
 ## Database Diagram
 
-## ![Database Diagram](./assets//db_diagram.png)
-
-## Endpoints
-
 ![01](./assets//01.png)
 ![02](./assets//02.png)
 ![03](./assets//03.png)
+
+## Endpoints
+
+![01](./assets//04.png)
+![02](./assets//05.png)
+![03](./assets//06.png)
+![03](./assets//07.png)
+![03](./assets//08.png)
 
 ---
 
